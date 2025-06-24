@@ -1,0 +1,859 @@
+/* Import fallback police */
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+  color: #111;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 10px;
+}
+
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  font-weight: 200;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #0062d1, #00c2b5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+/* SECTION ACCUEIL */
+
+
+#accueil {
+  padding-top: 120px; /* Ajuste si le header est plus ou moins haut */
+}
+
+.hero, .gallery-section, .section-restauration{
+  background: radial-gradient(ellipse at center, #007cf0 0%, #003973 100%);
+  color: white;
+  position: relative;
+  padding: 120px 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before, .gallery-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: relative;
+  width: 100%;
+  padding: 60px 0;
+  z-index: 1;
+}
+
+.logo-accueil {
+  display: block;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+.hero .btn {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+
+/* SECTION A PROPOS */
+
+
+.section-apropos {
+  position: relative;
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("img/a2.JPG") center/cover no-repeat;
+}
+
+.section-apropos .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-apropos h2 {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.apropos-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+  gap: 50px;
+}
+
+.apropos-icons .icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.95rem;
+  color: white;
+  max-width: 200px;
+}
+
+.apropos-icons .icon-box i {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.section-apropos p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* --- Responsive typo --- */
+@media (max-width: 480px) {
+  .apropos-icons {
+    gap: 0px;
+  }
+}
+
+
+
+.info-apropos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin: 80px auto;
+  width: 100%;
+}
+
+.info-apropos .lieu {
+  flex: 1 1 60%;
+  color: #fff;
+  font-weight: 300;
+  line-height: 1.6;
+  text-align: left; /* ← ici */
+}
+
+.info-apropos .lieu h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-apropos .lieu p {
+  margin-bottom: 10px;
+}
+
+.info-apropos .label {
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+  color: white;
+}
+
+.acces-list {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.acces-list li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+  color: white;
+  list-style: disc;
+}
+
+
+.acces-list li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.acces-list .small {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-left: 6px;
+}
+
+.info-apropos .devis {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  flex: 1 1 300px;
+}
+
+.info-apropos .prix {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.info-apropos .prix .petit {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.btn-devis {
+  display: inline-block;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  transition: background 0.3s ease;
+}
+
+.btn-devis:hover {
+  background: linear-gradient(90deg, #0062d1, #00c2b5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.gratuit {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+
+.section-apropos iframe {
+  width: 100%;
+  min-height: 400px;
+  border: none;
+  border-radius: 16px;
+  margin-top: 0px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+
+/* SECTION SALLES */
+.section-salles {
+  background: #f9f9f9;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section-salles h2 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.section-salles .intro {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Grille des cartes --- */
+.grid-salles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .grid-salles {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Carte Salle --- */
+.card-salle {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px 25px;
+  transition: transform 0.3s ease;
+  text-align: left;
+  color: #222;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.card-salle:hover {
+  transform: translateY(-5px);
+}
+
+.card-salle img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.card-salle h3 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #003973;
+}
+
+.card-salle p,
+.card-salle .description,
+.card-salle .details {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.card-salle .superficie {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 15px 0 10px;
+  color: #111;
+}
+
+/* Agencements */
+.agencements {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 25px 0;
+}
+
+.agencement-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #111;
+  line-height: 1.5;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: #111;
+}
+
+.agencement-item img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.agencement-item img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* --- Équipements sous forme de tags --- */
+.equipements {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.tag {
+  background: #f4f6f8;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e0e0e0;
+  font-weight: 500;
+}
+
+.tag i {
+  font-size: 1rem;
+}
+
+/* --- Responsive typo --- */
+@media (max-width: 480px) {
+  .section-salles h2 {
+    font-size: 2.2rem;
+  }
+
+  .section-salles .intro {
+    font-size: 1rem;
+  }
+
+  .card-salle h3 {
+    font-size: 1.3rem;
+  }
+
+  .card-salle p {
+    font-size: 0.95rem;
+  }
+
+  .tag {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* ------------------------------
+   TITRE & NAVIGATION
+------------------------------ */
+
+.gallery-title {
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.gallery-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 20px auto 40px;
+}
+
+.gallery-nav button {
+  background: none;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 1rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.gallery-nav button.active,
+.gallery-nav button:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ------------------------------
+   LAYOUT GÉNÉRAL
+------------------------------ */
+
+.gallery-section {
+  width: 100%;
+  overflow: hidden;
+  padding: 60px 0;
+  background: linear-gradient(to bottom, #0356a0, #057cc3);
+}
+
+.gallery-scroll-container {
+  width: 100%;
+}
+
+.gallery-slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.gallery-slide.active {
+  display: flex;
+}
+
+.gallery-slide#accueil {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+
+
+/* ------------------------------
+   MOSAÏQUE
+------------------------------ */
+
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+  padding: 0 5vw;
+  width: 100%;
+  max-width: 1600px;
+  box-sizing: border-box;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 4 / 3;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.04);
+}
+
+.grid-item.wide {
+  grid-column: span 2;
+}
+
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+
+@media (max-width: 1024px) {
+  .gallery-mosaic {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    padding: 0 4vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-nav button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .gallery-mosaic {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 0 3vw;
+  }
+}
+
+
+
+
+/* ------------------------------
+   ZOOM IMAGE (facultatif)
+------------------------------ */
+
+#zoom-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#zoom-viewer img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.zoom-hidden {
+  display: none;
+}
+
+
+/* SECTION TARIFS */
+
+
+.section-tarifs {
+  background: #f9f9f9;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section-tarifs h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-tarifs .intro {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 60px;
+}
+
+.tarif-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto 50px;
+}
+
+.tarif-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px 20px;
+  transition: transform 0.3s ease;
+}
+
+.tarif-card:hover {
+  transform: translateY(-5px);
+}
+
+.tarif-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #003973;
+}
+
+.tarif-card p {
+  font-size: 1.05rem;
+  font-weight: 400;
+  margin: 6px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tarif-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* SECTION RESTAURATION */
+
+
+.container-restauration {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Centrage vertical de l’image */
+  justify-content: center;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+
+.restauration-img {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.restauration-img img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.restauration-content {
+  flex: 1 1 500px;
+}
+
+.restauration-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  color: white;
+}
+
+.formule p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e6f0fa;
+  font-weight: 300;
+  text-align: left;
+}
+
+
+
+.formule p strong,
+.formule span {
+  color: white;
+  font-weight: 600;
+}
+
+
+/* SECTION CONTACT */
+
+
+.section-contact {
+  background: #f9f9f9;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section-contact h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-family: 'Inter', sans-serif;
+}
+
+.section-contact .intro {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 60px;
+}
+
+.contact-form {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-grid input {
+  flex: 1;
+  min-width: 250px;
+  height: 52px;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    flex-direction: column;
+  }
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 300;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form textarea {
+  min-height: 300px; /* ← plus grand que la valeur par défaut */
+  resize: vertical;  /* optionnel : permet à l'utilisateur d'agrandir */
+}
+
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007cf0;
+  box-shadow: 0 0 0 3px rgba(0, 124, 240, 0.2);
+  outline: none;
+}
+
+.contact-form button {
+  align-self: center;
+}
+
+
+.contact-form button {
+  align-self: center;
+  border: none; /* ✅ supprime le liseré noir */
+  outline: none; /* optionnel : enlève le contour au focus */
+  border-radius: 30px;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* TITRES */
+
+
+section h2, 
+.section-salles h2,
+.section-tarifs h2,
+.section-apropos h2,
+.restauration-content h2,
+.gallery-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  text-align: center;
+}
