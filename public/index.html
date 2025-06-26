@@ -18,7 +18,7 @@
 <body>
   <header id="site-header">
     <div class="container">
-      <h1 class="logo">Espace Trinité</h1>
+      <img src="img/logo-espace-trinite.png" alt="Logo Espace Trinité" class="logo-accueil">
       <nav>
         <div class="burger" aria-label="Menu" aria-expanded="false">
           <span></span>
@@ -38,20 +38,96 @@
     </div>
   </header>
 
-
   <section id="accueil" class="hero">
     <div class="hero-overlay">
-      <img src="img/logo-espace-trinite.png" alt="Logo Espace Trinité" class="logo-accueil">
       <div class="container">
         <h2>Votre espace de travail au cœur de Paris</h2>
         <p>
-          Idéalement situé au cœur du 9e arrondissement de Paris, à deux pas de la Gare Saint-Lazare, d’Auber et d’Opéra, l’Espace Trinité vous accueille dans un cadre chaleureux et modulable.
+          Idéalement situé au cœur du 9<sup>e</sup> arrondissement de Paris, à deux pas de la Gare Saint-Lazare, d’Auber et d’Opéra, l’Espace Trinité vous accueille dans un cadre chaleureux et modulable.
+        </p>
+
+        <p>
           Réunions privées ou professionnelles, séminaires, conférences, team buildings ou événements sur mesure : notre équipe met à votre disposition des salles équipées et un accompagnement personnalisé.
         </p>
-        <a href="#contact" class="btn">Demander une réservation</a>
+
+        <!-- Capacités des configurations de salle -->
+        <div class="capacity-list">
+          <div class="capacity-item">
+            <div class="capacity-header">
+              <img src="img/lunch.png" alt="Réunion" class="capacity-icon">
+              <span class="capacity-type">Réunion</span>
+            </div>
+            <div class="capacity-badges">
+              <span class="badge">Salle la plus grande : 39 pers</span>
+              <span class="badge">Nombre de salles : 4</span>
+            </div>
+          </div>
+
+          <div class="capacity-item">
+            <div class="capacity-header">
+              <img src="img/u-table.png" alt="En U" class="capacity-icon">
+              <span class="capacity-type">En U</span>
+            </div>
+            <div class="capacity-badges">
+              <span class="badge">Salle la plus grande : 34 pers</span>
+              <span class="badge">Nombre de salles : 4</span>
+            </div>
+          </div>
+
+          <div class="capacity-item">
+            <div class="capacity-header">
+              <img src="img/conference.png" alt="Conférence" class="capacity-icon">
+              <span class="capacity-type">Conférence</span>
+            </div>
+            <div class="capacity-badges">
+              <span class="badge">Salle la plus grande : 60 pers</span>
+              <span class="badge">Nombre de salles : 4</span>
+            </div>
+          </div>
+
+          <div class="capacity-item">
+            <div class="capacity-header">
+              <img src="img/cocktail.png" alt="Cocktail" class="capacity-icon">
+              <span class="capacity-type">Cocktail</span>
+            </div>
+            <div class="capacity-badges">
+              <span class="badge">Salle la plus grande : 19 pers</span>
+              <span class="badge">Nombre de salles : 1</span>
+            </div>
+          </div>
+
+          <div class="capacity-item">
+            <div class="capacity-header">
+              <img src="img/table.png" alt="Classe" class="capacity-icon">
+              <span class="capacity-type">Classe</span>
+            </div>
+            <div class="capacity-badges">
+              <span class="badge">Salle la plus grande : 40 pers</span>
+              <span class="badge">Nombre de salles : 4</span>
+            </div>
+          </div>
+          <div class="equipements">
+            <div class="tag"><i class="bi bi-display"></i> Vidéoprojecteur sonorisé</div>
+            <div class="tag"><i class="bi bi-mic"></i> Micro HF sur demande</div>
+            <div class="tag"><i class="bi bi-wifi"></i> Wifi internet fibre</div>
+            <div class="tag"><i class="bi bi-easel"></i> Paperboard</div>
+            <div class="tag"><i class="bi bi-snow"></i> Climatisation</div>
+          </div>
+        </div>
+
+        <div class="devis">
+          <div class="prix">
+            À partir de <strong>350&nbsp;€</strong><br>
+            <span class="petit">/ demi-journée</span>
+          </div>
+          <a href="#contact" class="btn-devis">Demander un devis</a>
+          <div class="gratuit">Devis gratuit</div>
+        </div>
+
       </div>
     </div>
   </section>
+
 
   <section id="apropos" class="section-apropos">
     <div class="container">
@@ -88,8 +164,8 @@
 
       <div class="info-apropos">
         <div class="lieu">
-          <h3><span class="emoji"></span> Le lieu</h3>
-          <p><strong>📍 Adresse :</strong><br>3 rue de la Trinité, Paris 9e</p>
+          <h3>📍 Le lieu</h3>
+          <p><strong>Adresse :</strong><br>3 rue de la Trinité, Paris 9e</p>
 
           <p class="label">🚌 Accès :</p>
           <ul class="acces-list">
@@ -99,22 +175,20 @@
           </ul>
         </div>
 
-        <div class="devis">
-          <p class="prix">À partir de <strong>350 €</strong><br><span class="petit">/ demi-journée</span></p>
-          <a href="#contact" class="btn-devis">Demander un devis</a>
-          <p class="gratuit">Devis gratuit</p>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.5064898799234!2d2.3282051!3d48.877525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e49c2725e9d%3A0x1bea2a062e99c336!2sDu%20C%C3%B4t%C3%A9%20de%20la%20Trinit%C3%A9!5e0!3m2!1sfr!2sfr!4v1719152360000!5m2!1sfr!2sfr"
+            width="100%"
+            height="350"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
 
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.5064898799234!2d2.3282051!3d48.877525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e49c2725e9d%3A0x1bea2a062e99c336!2sDu%20C%C3%B4t%C3%A9%20de%20la%20Trinit%C3%A9!5e0!3m2!1sfr!2sfr!4v1719152360000!5m2!1sfr!2sfr"
-        width="100%"
-        height="350"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+
     </div>
   </section>
 
@@ -327,37 +401,49 @@
 
 
 
-  <section id="tarifs" class="section-tarifs">
-    <div class="container">
-      <h2>Tarifs</h2>
-      <p class="intro">Tarifs HT pour demi-journée et journée complète, applicables à partir de septembre 2025.</p>
+<section id="tarifs" class="section-tarifs">
+  <div class="container">
+    <h2>Tarifs</h2>
+    <p class="intro">Tarifs HT applicables à partir de septembre 2025. Un supplément s'applique au-delà de 30 personnes.</p>
 
-      <div class="tarif-grid">
-        <div class="tarif-card">
-          <h3>Salle La Bruyère</h3>
-          <p>Demi-journée : <strong>500 € HT</strong></p>
-          <p>Journée : <strong>680 € HT</strong></p>
-        </div>
-        <div class="tarif-card">
-          <h3>Salle Olivier Messiaen</h3>
-          <p>Demi-journée : <strong>475 € HT</strong></p>
-          <p>Journée : <strong>640 € HT</strong></p>
-        </div>
-        <div class="tarif-card">
-          <h3>Salle Pierre Goursat</h3>
-          <p>Demi-journée : <strong>380 € HT</strong></p>
-          <p>Journée : <strong>525 € HT</strong></p>
-        </div>
-        <div class="tarif-card">
-          <h3>Salle Estienne d’Orves</h3>
-          <p>Demi-journée : <strong>350 € HT</strong></p>
-          <p>Journée : <strong>500 € HT</strong></p>
-        </div>
+    <div class="tarif-grid">
+      <div class="tarif-card">
+        <h3>Salle La Bruyère</h3>
+        <p><strong>Journée :</strong> 660 €</p>
+        <p><strong>Demi-journée :</strong> 485 €</p>
+        <p><strong>Tarif horaire :</strong> 164 €</p>
       </div>
 
-      <a href="#contact" class="btn">Demander un devis</a>
+      <div class="tarif-card">
+        <h3>Salle Pierre Goursat</h3>
+        <p><strong>Journée :</strong> 510 € <span class="supplement">+30 pers : 555 €</span></p>
+        <p><strong>Demi-journée :</strong> 365 € <span class="supplement">400 €</span></p>
+        <p><strong>Tarif horaire :</strong> 115 € <span class="supplement">127 €</span></p>
+        <p><strong>Forfait soirée :</strong> 448 €</p>
+      </div>
+
+      <div class="tarif-card">
+        <h3>Salle Estienne d’Orves</h3>
+        <p><strong>Journée :</strong> 490 €</p>
+        <p><strong>Demi-journée :</strong> 340 €</p>
+        <p><strong>Tarif horaire :</strong> 111 €</p>
+      </div>
+
+      <div class="tarif-card">
+        <h3>Salle Olivier Messiaen</h3>
+        <p><strong>Journée :</strong> 620 €</p>
+        <p><strong>Demi-journée :</strong> 460 €</p>
+        <p><strong>Tarif horaire :</strong> 157 €</p>
+      </div>
     </div>
-  </section>
+
+    <a href="#contact" class="btn">Demander un devis</a>
+  </div>
+</section>
+
+
+
+
 
   <section id="restauration" class="section-restauration">
     <div class="container-restauration">

@@ -22,16 +22,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 5px;
 }
 
-#site-header .logo {
-  font-weight: 100;
-  font-size: 1.4rem;
-}
-
-header h1 {
-  font-size: 1.4rem;
+.logo-accueil {
+  height: 70px;
   margin: 0;
 }
 
@@ -64,7 +59,7 @@ nav {
 }
 
 #site-header nav a:hover {
-  color: #007bff;
+  color: #003973;
 }
 
 .nav-links {
@@ -75,8 +70,8 @@ nav {
 /* Style pour la section active dans le menu */
 .nav-links a.active-section {
   font-weight: 600;
-  color: #007cf0;
-  border-bottom: 2px solid #007cf0;
+  color: #003973;
+  border-bottom: 2px solid #003973;
 }
 
 /* -----------------------

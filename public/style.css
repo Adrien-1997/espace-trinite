@@ -57,7 +57,7 @@ section h2 {
 
 
 #accueil {
-  padding-top: 120px; /* Ajuste si le header est plus ou moins haut */
+  padding-top: 80px; /* Ajuste si le header est plus ou moins haut */
 }
 
 .hero, .gallery-section, .section-restauration{
@@ -91,12 +91,6 @@ section h2 {
   z-index: 1;
 }
 
-.logo-accueil {
-  display: block;
-  height: 150px;
-  margin: 0 auto;
-}
-
 .hero h2 {
   font-size: 3.5rem;
   font-weight: 800;
@@ -116,6 +110,178 @@ section h2 {
 .hero .btn {
   font-size: 1rem;
   font-weight: 400;
+}
+
+
+@media (max-width: 768px) {
+
+  .hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+}
+
+
+/* ===========================================================
+   CAPACITÉS — Cartes harmonisées avec .tarif-card
+   =========================================================== */
+
+.capacity-list {
+  margin: 40px auto;
+  max-width: 900px;                /* cohérent avec .tarif-grid */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Carte individuelle --------- */
+.capacity-item {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;                 /* évite le débordement des badges */
+  border-left: 5px solid #003973;  /* repère visuel commun aux tarifs  */
+  transition: transform 0.3s ease;
+}
+
+/* ---------- Icône + titre (à gauche) --------- */
+.capacity-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.capacity-icon  {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.capacity-type  {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #003973;
+}
+
+/* ---------- Badges (à droite sur desktop) --------- */
+.capacity-badges {
+  margin-left: auto;               /* pousse le bloc à droite */
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: #e7ecf4;
+  color: #003973;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+/* =========================================================== */
+/* Responsive : empilement vertical sur mobile                  */
+/* =========================================================== */
+@media (max-width: 768px) {
+
+  /* Carte passe en colonne */
+  .capacity-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Icône réduite, titre légèrement plus petit */
+  .capacity-icon  { width: 28px; height: 28px; }
+  .capacity-type  { font-size: 1.05rem; }
+
+  /* Badges à la suite sous le titre */
+  .capacity-badges {
+    margin-left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .badge { font-size: 0.9rem; }
+}
+
+/* ===========================================================
+   Etiquette devis
+   =========================================================== */
+
+.devis {
+  max-width: 320px;
+  background: white;
+  padding: 32px 24px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  margin: 60px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: fadeInUp 0.6s ease;
+}
+
+.prix {
+  font-size: 1.25rem;
+  color: #111;
+  line-height: 1.6;
+}
+
+.prix .petit {
+  font-size: 0.rem;
+  color: #555;
+  display: block;
+  margin-top: 4px;
+}
+
+.btn-devis {
+  display: inline-block;
+  padding: 12px 22px;
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-devis:hover {
+  background: linear-gradient(90deg, #0062d1, #00c2b5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.gratuit {
+  font-size: 0.90rem;
+  color: #555;
+  margin-top: -4px;
+}
+
+/* =========================================================== */
+/* Responsive : empilement vertical sur mobile                  */
+/* =========================================================== */
+
+/* Optional animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 
@@ -143,27 +309,6 @@ section h2 {
   font-weight: 700;
 }
 
-.apropos-icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 40px;
-  gap: 50px;
-}
-
-.apropos-icons .icon-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.95rem;
-  color: white;
-  max-width: 200px;
-}
-
-.apropos-icons .icon-box i {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
 
 .section-apropos p {
   font-size: 1.1rem;
@@ -172,13 +317,53 @@ section h2 {
   margin-bottom: 40px;
 }
 
-/* --- Responsive typo --- */
-@media (max-width: 480px) {
+.apropos-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px 60px;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.apropos-icons .icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: 180px;
+}
+
+.apropos-icons .icon-box i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.apropos-icons .icon-box p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.4;
+  max-width: 160px;
+}
+
+/* --- Mobile : empile 2 par ligne puis 1 en dessous de 480px --- */
+@media (max-width: 768px) {
   .apropos-icons {
-    gap: 0px;
+    gap: 30px 30px;
+  }
+
+  .apropos-icons .icon-box {
+    width: 45%;
   }
 }
 
+@media (max-width: 480px) {
+  .apropos-icons .icon-box {
+    width: 100%;
+  }
+}
 
 
 .info-apropos {
@@ -186,16 +371,16 @@ section h2 {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 40px;
-  margin: 80px auto;
+  margin: 60px auto;
   width: 100%;
 }
 
 .info-apropos .lieu {
-  flex: 1 1 60%;
+  flex: 1 1 45%;
   color: #fff;
   font-weight: 300;
   line-height: 1.6;
-  text-align: left; /* ← ici */
+  text-align: left;
 }
 
 .info-apropos .lieu h3 {
@@ -232,72 +417,24 @@ section h2 {
   list-style: disc;
 }
 
-
-.acces-list li {
-  margin-bottom: 6px;
-  font-size: 1rem;
-}
-
 .acces-list .small {
   font-size: 0.9rem;
   color: #ccc;
   margin-left: 6px;
 }
 
-.info-apropos .devis {
-  background: white;
-  padding: 30px 20px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  flex: 1 1 300px;
+.map-container {
+  flex: 1 1 50%;
+  min-width: 280px;
 }
 
-.info-apropos .prix {
-  font-size: 1.2rem;
-  margin-bottom: 16px;
-  color: #111;
-}
-
-.info-apropos .prix .petit {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.btn-devis {
-  display: inline-block;
-  padding: 12px 20px;
-  background: linear-gradient(90deg, #007cf0, #00dfd8);
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 500;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  transition: background 0.3s ease;
-}
-
-.btn-devis:hover {
-  background: linear-gradient(90deg, #0062d1, #00c2b5);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.gratuit {
-  font-size: 0.85rem;
-  color: #777;
-}
-
-
-.section-apropos iframe {
+.map-container iframe {
   width: 100%;
   min-height: 400px;
   border: none;
   border-radius: 16px;
-  margin-top: 0px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
-
 
 /* SECTION SALLES */
 .section-salles {
@@ -326,7 +463,7 @@ section h2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
-  max-width: 1100px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -347,10 +484,8 @@ section h2 {
   color: #222;
   line-height: 1.6;
   font-size: 1.1rem;
-}
+  border-left: 5px solid #003973;
 
-.card-salle:hover {
-  transform: translateY(-5px);
 }
 
 .card-salle img {
@@ -383,37 +518,38 @@ section h2 {
   color: #111;
 }
 
-/* Agencements */
 .agencements {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin: 25px 0;
+  margin: 8px 0 20px; /* réduit le haut */
 }
 
 .agencement-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #111;
-  line-height: 1.5;
+  align-items: center; /* aligne verticalement texte et icône */
+  gap: 10px;
+  padding: 4px 0; /* encore plus compact */
   font-size: 1.05rem;
-  font-weight: 300;
+  font-weight: 400;
   color: #111;
+  border-bottom: 1px solid #ccc;
+  line-height: 1.4;
+}
+
+.agencement-item:last-child {
+  border-bottom: none;
 }
 
 .agencement-item img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
   flex-shrink: 0;
+  display: block;
+  margin: 0; /* supprimé le margin-top */
 }
 
-.agencement-item img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
+
 
 /* --- Équipements sous forme de tags --- */
 .equipements {
@@ -600,7 +736,6 @@ section h2 {
 
 
 
-
 /* ------------------------------
    ZOOM IMAGE (facultatif)
 ------------------------------ */
@@ -630,7 +765,6 @@ section h2 {
 
 /* SECTION TARIFS */
 
-
 .section-tarifs {
   background: #f9f9f9;
   padding: 100px 20px;
@@ -647,6 +781,10 @@ section h2 {
   font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 .tarif-grid {
@@ -661,25 +799,56 @@ section h2 {
   background: white;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  padding: 30px 20px;
+  padding: 30px 24px;
   transition: transform 0.3s ease;
-}
-
-.tarif-card:hover {
-  transform: translateY(-5px);
+  text-align: left;
+  border-left: 5px solid #003973;
 }
 
 .tarif-card h3 {
   font-size: 1.4rem;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #003973;
 }
 
 .tarif-card p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 400;
-  margin: 6px 0;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.tarif-card strong {
+  color: #003973;
+  font-weight: 600;
+}
+
+.tarif-card .supplement {
+  display: inline-block;
+  font-size: 0.85rem;
+  background-color: #e7ecf4;
+  color: #003973;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+/* Bouton de devis */
+.section-tarifs .btn {
+  background-color: #003973;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.section-tarifs .btn:hover {
+  background-color: #00234e;
 }
 
 /* Responsive */
@@ -687,7 +856,20 @@ section h2 {
   .tarif-grid {
     grid-template-columns: 1fr;
   }
+
+  .tarif-card {
+    padding: 24px 20px;
+  }
+
+  .section-tarifs h2 {
+    font-size: 2.2rem;
+  }
+
+  .section-tarifs .intro {
+    font-size: 1.05rem;
+  }
 }
+
 
 /* SECTION RESTAURATION */
 
