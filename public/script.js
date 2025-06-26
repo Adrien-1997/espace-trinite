@@ -126,3 +126,159 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+/* -------------------------------------------------
+    MINI-ASSISTANT — Trouve ta salle idéale
+--------------------------------------------------*/
+
+document.addEventListener("DOMContentLoaded", () => {
+  /* ----- Sélecteurs généraux ----- */
+  const toggleBtn   = document.getElementById("assistant-toggle");
+  const overlay     = document.getElementById("assistant-overlay");
+  const cancelBtn   = document.getElementById("assistant-cancel");
+  const submitBtn   = document.getElementById("assistant-submit");
+  const resultBlock = document.getElementById("assistant-result");
+
+  const eventType   = document.getElementById("eventType");
+  const participants= document.getElementById("participants");
+  const duration    = document.getElementById("duration");
+  const pmrCheck    = document.getElementById("pmr");
+
+  /* ----- Formulaire contact ----- */
+  const contactSubject = document.getElementById("contact-subject");
+  const contactMessage = document.getElementById("contact-message");
+  const contactSection = document.getElementById("contact");
+
+  if (!toggleBtn) return console.warn("Assistant non trouvé dans le DOM");
+
+  /* ----- Données salles (brochure) ----- */
+  const rooms = [
+    {
+      id: "bruyere",
+      name: "Salle La Bruyère",
+      max: 60,       min: 10, pmr: true,
+      eventTypes: ["reunion","conference","dejeuner"],
+      pricing: { heure:164, demi:485, journee:660 }
+    },
+    {
+      id: "goursat",
+      name: "Salle Pierre Goursat",
+      max: 60,       min: 10, pmr: true,
+      eventTypes: ["reunion","conference","dejeuner","cocktail"],
+      pricing: { heure:115, demi:365, journee:510, soiree:448,
+                 heure_30:127, demi_30:400, journee_30:555 }
+    },
+    {
+      id: "orves",
+      name: "Salle Estienne d'Orves",
+      max: 25,       min: 6,  pmr: true,
+      eventTypes: ["reunion","conference"],
+      pricing: { heure:111, demi:340, journee:490 }
+    },
+    {
+      id: "messiaen",
+      name: "Salle Olivier Messiaen",
+      max: 65,       min: 20, pmr: false,
+      eventTypes: ["conference","dejeuner"],
+      pricing: { heure:157, demi:460, journee:620 }
+    }
+  ];
+
+  /* ----- Helpers ouverture/fermeture ----- */
+  const openAssistant  = () => overlay.style.display = "flex";
+  const closeAssistant = () => overlay.style.display = "none";
+
+  toggleBtn.addEventListener("click", openAssistant);
+  cancelBtn.addEventListener("click", closeAssistant);
+  overlay.addEventListener("click", e => { if (e.target === overlay) closeAssistant(); });
+
+  /* ----- Soumission du mini-formulaire ----- */
+  submitBtn.addEventListener("click", () => {
+
+    /* Réinitialise l’affichage résultat */
+    resultBlock.style.display = "none";
+
+    /* Récupération des réponses */
+    const type    = eventType.value;                         // reunion / conference / cocktail / dejeuner
+    const nb      = parseInt(participants.value, 10) || 0;
+    const dur     = duration.value;                          // demi | journee | soiree
+    const wantPMR = pmrCheck.checked;
+    const dateStart = document.getElementById("dateStart")?.value;
+    const dateEnd   = document.getElementById("dateEnd")?.value;
+
+    /* Filtrage des salles */
+    const matches = rooms.filter(r =>
+      r.eventTypes.includes(type) &&
+      nb >= r.min && nb <= r.max &&
+      (!wantPMR || r.pmr)
+    );
+
+    /* --- S’il n’y a aucune salle adaptée --- */
+    if (!matches.length) {
+      resultBlock.innerHTML = "Aucune salle ne correspond exactement à votre besoin.<br>Contactez-nous pour une solution sur mesure.";
+      resultBlock.style.display = "block";
+      return;
+    }
+
+    /* --- Choix de la meilleure salle --- */
+    matches.sort((a,b) => (a.max - nb) - (b.max - nb));
+    const best = matches[0];
+
+    const price = best.pricing[dur] ? best.pricing[dur] + " € HT" : "sur devis";
+    const label = dur === "demi" ? "demi-journée"
+               : dur === "journee" ? "journée"
+               : "soirée";
+
+    /* --- Affichage de la recommandation --- */
+    resultBlock.innerHTML = `
+      <strong>${best.name}</strong><br>
+      Capacité : jusqu’à ${best.max} pers.<br>
+      Tarif ${label} : <strong>${price}</strong><br><br>
+      <button id="devis-btn" class="btn btn-primary">Demander un devis</button>
+    `;
+    resultBlock.style.display = "block";
+
+    /* --- Bouton “Demander un devis” --- */
+    document.getElementById("devis-btn").addEventListener("click", () => {
+      const pmrText  = wantPMR ? "Oui" : "Non";
+      const dateText = (dateStart && dateEnd)
+          ? `- Période souhaitée : du ${dateStart} au ${dateEnd}\n`
+          : "";
+
+      const messageTxt = `Bonjour,
+
+    Je souhaite organiser un événement avec les critères suivants :
+
+    - Type d’événement : ${type}
+    - Nombre de participants : ${nb}
+    - Durée : ${label}
+    ${dateText}
+    - Besoin d’accessibilité PMR : ${pmrText}
+
+    Pourriez-vous me faire une proposition adaptée ?
+    Merci d’avance.`;
+
+      /* 1) On tente de pré-remplir le formulaire “Contact” */
+      const contactSection = document.getElementById("contact");
+      const subjectField   = contactSection?.querySelector('input[placeholder*="Objet"], #contact-subject');
+      const messageField   = contactSection?.querySelector('textarea, #contact-message');
+
+      if (subjectField && messageField) {
+        subjectField.value = "Demande de devis";
+        messageField.value = messageTxt;
+
+        /* Scroll doux vers la section contact */
+        contactSection.scrollIntoView({ behavior: "smooth" });
+        closeAssistant();                      // ferme la pop-up
+      } else {
+        /* 2) Fallback : ouvre le client mail avec le message */
+        const mailBody = encodeURIComponent(messageTxt);
+        window.location.href =
+          `mailto:contact@espace-trinite.fr?subject=Demande de devis&body=${mailBody}`;
+      }
+    });
+  });
+});
+
+
+
