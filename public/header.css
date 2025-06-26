@@ -199,3 +199,32 @@ footer a {
 footer a:hover {
   color: #ffffff;
 }
+
+
+
+/* Structure horizontale */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Regroupe logo et titre */
+.logo-accueil {
+  height: 50px;
+  margin-right: 8px; /* réduit l'espace entre logo et texte */
+}
+
+/* Aligne verticalement avec le logo */
+.titre-header {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Optionnel : espace entre logo+titre et nav */
+header nav {
+  margin-left: auto;
+}
+

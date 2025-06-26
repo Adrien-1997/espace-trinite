@@ -19,6 +19,7 @@
   <header id="site-header">
     <div class="container">
       <img src="img/logo-espace-trinite.png" alt="Logo Espace Trinité" class="logo-accueil">
+      <h3>ESPACE TRINITE</h3>
       <nav>
         <div class="burger" aria-label="Menu" aria-expanded="false">
           <span></span>
@@ -33,6 +34,65 @@
           <li><a href="#tarifs">Tarifs</a></li>
           <li><a href="#restauration">Restauration</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><button id="assistant-toggle">Trouver ma salle 🧭</button>
+            <div id="assistant-overlay">
+              <div id="assistant-box">
+                <div id="assistant-modal">
+                  <h3>Trouvez votre salle idéale</h3>
+                  <div id="assistant-form">
+                    <div class="form-row">
+                      <label for="eventType">Type d'événement</label>
+                      <select id="eventType" required>
+                        <option value="" disabled selected>Type d'événement</option>
+                        <option value="reunion">Réunion / Atelier</option>
+                        <option value="conference">Conférence / Présentation</option>
+                        <option value="cocktail">Cocktail / Réception</option>
+                      </select>
+                    </div>
+                    <div class="form-row">
+                      <label for="participants">Nombre de participants</label>
+                      <select id="participants" required>
+                        <option value="" disabled selected>Nombre de participants</option>
+                        <option value="10">0-10 personnes</option>
+                        <option value="20">10-20 personnes</option>
+                        <option value="30">20-30 personnes</option>
+                        <option value="40">30-40 personnes</option>
+                        <option value="50">40-50 personnes</option>
+                        <option value="60">50-60 personnes</option>
+                        <option value="65">60-65 personnes</option>
+                      </select>
+                    </div>
+                    <div class="form-row">
+                      <label for="duration">Durée</label>
+                      <select id="duration" required>
+                        <option value="" disabled selected>Durée</option>
+                        <option value="demi">Demi‑journée</option>
+                        <option value="journee">Journée</option>
+                        <option value="soiree">Soirée</option>
+                      </select>
+                    </div>
+                    <div class="form-row">
+                      <label for="dateStart">Date souhaitée (début)</label>
+                      <input type="date" id="dateStart" name="dateStart">
+                    </div>
+                    <div class="form-row">
+                      <label for="dateEnd">Date souhaitée (fin)</label>
+                      <input type="date" id="dateEnd" name="dateEnd">
+                    </div>
+                    <div class="form-checkbox">
+                      <input type="checkbox" id="pmr" />
+                      <label for="pmr">Accessible PMR</label>
+                    </div>
+                  </div>
+                  <div id="assistant-result" style="display:none;"></div>
+                  <div class="actions">
+                    <button class="btn btn-secondary" id="assistant-cancel">Annuler</button>
+                    <button class="btn btn-primary" id="assistant-submit">Voir la recommandation</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
@@ -49,63 +109,6 @@
         <p>
           Réunions privées ou professionnelles, séminaires, conférences, team buildings ou événements sur mesure : notre équipe met à votre disposition des salles équipées et un accompagnement personnalisé.
         </p>
-
-        <button id="assistant-toggle">Trouver ma salle 🧭</button>
-        <div id="assistant-overlay">
-          <div id="assistant-box">
-            <div id="assistant-modal">
-              <h3>Trouve ta salle idéale</h3>
-              <div id="assistant-form">
-                <div class="form-row">
-                  <label for="eventType">Type d'événement</label>
-                  <select id="eventType" required>
-                    <option value="reunion">Réunion / Atelier</option>
-                    <option value="conference">Conférence / Présentation</option>
-                    <option value="cocktail">Cocktail / Réception</option>
-                  </select>
-                </div>
-                <div class="form-row">
-                  <label for="participants">Nombre de participants</label>
-                  <select id="participants" required>
-                    <option value="" disabled selected>Nombre de participants</option>
-                    <option value="10">0-10 personnes</option>
-                    <option value="20">10-20 personnes</option>
-                    <option value="30">20-30 personnes</option>
-                    <option value="40">30-40 personnes</option>
-                    <option value="50">40-50 personnes</option>
-                    <option value="60">50-60 personnes</option>
-                    <option value="65">60-65 personnes</option>
-                  </select>
-                </div>
-                <div class="form-row">
-                  <label for="duration">Durée</label>
-                  <select id="duration" required>
-                    <option value="demi">Demi‑journée</option>
-                    <option value="journee">Journée</option>
-                    <option value="soiree">Soirée</option>
-                  </select>
-                </div>
-                <div class="form-row" style="flex-direction:row;align-items:center;gap:8px;">
-                  <input type="checkbox" id="pmr" />
-                  <label for="pmr" style="margin:0;">Accessible PMR</label>
-                </div>
-              </div>
-              <div class="form-row">
-                <label for="dateStart">Date souhaitée (début)</label>
-                <input type="date" id="dateStart" name="dateStart">
-              </div>
-              <div class="form-row">
-                <label for="dateEnd">Date souhaitée (fin)</label>
-                <input type="date" id="dateEnd" name="dateEnd">
-              </div>
-              <div id="assistant-result" style="display:none;"></div>
-              <div class="actions">
-                <button class="btn btn-secondary" id="assistant-cancel">Annuler</button>
-                <button class="btn btn-primary" id="assistant-submit">Voir la recommandation</button>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- Capacités des configurations de salle -->
         <div class="capacity-list">

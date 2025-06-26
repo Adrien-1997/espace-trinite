@@ -240,23 +240,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* --- Bouton “Demander un devis” --- */
     document.getElementById("devis-btn").addEventListener("click", () => {
-      const pmrText  = wantPMR ? "Oui" : "Non";
+      const pmrText  = wantPMR ? "oui" : "non";
       const dateText = (dateStart && dateEnd)
-          ? `- Période souhaitée : du ${dateStart} au ${dateEnd}\n`
+          ? `- Période souhaitée : du ${dateStart} au ${dateEnd}`
           : "";
 
       const messageTxt = `Bonjour,
 
-    Je souhaite organiser un événement avec les critères suivants :
+Je souhaite organiser un événement avec les critères suivants :
 
-    - Type d’événement : ${type}
-    - Nombre de participants : ${nb}
-    - Durée : ${label}
-    ${dateText}
-    - Besoin d’accessibilité PMR : ${pmrText}
+  - Type d’événement : ${type}
+  - Nombre de participants : ${nb}
+  - Durée : ${label}
+  ${dateText}
+  - Besoin d’accessibilité PMR : ${pmrText}
 
-    Pourriez-vous me faire une proposition adaptée ?
-    Merci d’avance.`;
+Pourriez-vous me faire une proposition adaptée ?
+Merci d’avance.`;
+
+      const mailBody = encodeURIComponent(messageTxt);
+      window.location.href = `mailto:contact@espace-trinite.fr?subject=Demande de devis&body=${mailBody}`;
+
 
       /* 1) On tente de pré-remplir le formulaire “Contact” */
       const contactSection = document.getElementById("contact");
