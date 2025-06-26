@@ -67,10 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
-
-
 // ----------------------------
 // ZOOM SUR LES IMAGES
 // ----------------------------
@@ -97,3 +93,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// ----------------------------
+// Smooth scroll fallback + compatibilité étendue (IE/anciens Safari)
+// ----------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  links.forEach(link => {
+    link.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+
+      // Ignore les faux liens ou liens externes
+      if (targetId.length > 1 && targetId.startsWith("#")) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+
+          // Calcule la position de destination
+          const yOffset = -70; // Décalage si header sticky (ajuste si besoin)
+          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+          // Défilement fluide
+          window.scrollTo({
+            top: y,
+            behavior: "smooth"
+          });
+        }
+      }
+    });
+  });
+});
+
