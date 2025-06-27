@@ -180,6 +180,21 @@ section h2 {
   text-align: center;
   margin: 0;
 }
+
+/* Limite la hauteur + scroll interne */
+#assistant-modal{
+  /* …tes propriétés déjà présentes… */
+  max-height: calc(100vh - 200px);   /* 140 px ≃ marge haut + bas  */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;  /* scroll fluide iOS */
+}
+
+#assistant-modal::after {
+  content: '';
+  display: block;
+  height: 24px; /* ou plus si nécessaire */
+}
+
 #assistant-modal h3 {
   margin: 0;
   font-size: 1.6rem;
@@ -279,6 +294,25 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
+/* -----------------------------------------------------------
+   Version mobile
+   -----------------------------------------------------------*/
+@media(max-width:768px){
+  #assistant-toggle{
+    padding:10px 16px;font-size:.9rem;
+  }
+  #assistant-modal{
+    width:80%;max-width:80%;
+    padding:24px 20px;
+  }
+  #assistant-modal h3{font-size:1.4rem}
+}
+
+
+/* -----------------------------------------------------------
+   Blocage du scroll de fond
+   -----------------------------------------------------------*/
+body.no-scroll{overflow:hidden}
 
 
 /* ===========================================================

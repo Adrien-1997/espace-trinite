@@ -185,51 +185,87 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   /* ----- Helpers ouverture/fermeture ----- */
-  const openAssistant  = () => overlay.style.display = "flex";
-  const closeAssistant = () => overlay.style.display = "none";
 
-  toggleBtn.addEventListener("click", openAssistant);
-  cancelBtn.addEventListener("click", closeAssistant);
-  overlay.addEventListener("click", e => { if (e.target === overlay) closeAssistant(); });
+  /* === Helpers === */
+  const closeBurger = () => {
+    const burger   = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    if (burger && navLinks) {
+      burger.classList.remove('active', 'open');
+      navLinks.classList.remove('active', 'open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  };
 
-  /* ----- Soumission du mini-formulaire ----- */
+  const openAssistant = () => {
+    overlay.style.display = 'flex';      // affiche la pop-up
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeAssistant = () => {
+    closeBurger();                       // referme le menu mobile
+    overlay.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  /* === Listeners UNIQUES === */
+  toggleBtn.addEventListener('click', (e) => {
+    e.preventDefault();          // évite un éventuel href="#"
+    e.stopImmediatePropagation(); // AUCUN autre handler ne reçoit ce clic
+    openAssistant();
+  });
+
+  cancelBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    closeAssistant();
+  });
+
+  /* clic sur fond sombre = fermeture */
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeAssistant();
+  });
+
+/* ----- Soumission du mini-formulaire ----- */
   submitBtn.addEventListener("click", () => {
-
-    /* Réinitialise l’affichage résultat */
     resultBlock.style.display = "none";
 
-    /* Récupération des réponses */
-    const type    = eventType.value;                         // reunion / conference / cocktail / dejeuner
-    const nb      = parseInt(participants.value, 10) || 0;
-    const dur     = duration.value;                          // demi | journee | soiree
-    const wantPMR = pmrCheck.checked;
+    const type      = eventType.value;
+    const nb        = parseInt(participants.value, 10) || 0;
+    const dur       = ["demi", "journee", "soiree"].includes(duration.value) ? duration.value : null;
+    const wantPMR   = pmrCheck.checked;
     const dateStart = document.getElementById("dateStart")?.value;
     const dateEnd   = document.getElementById("dateEnd")?.value;
 
-    /* Filtrage des salles */
     const matches = rooms.filter(r =>
       r.eventTypes.includes(type) &&
       nb >= r.min && nb <= r.max &&
       (!wantPMR || r.pmr)
     );
 
-    /* --- S’il n’y a aucune salle adaptée --- */
     if (!matches.length) {
       resultBlock.innerHTML = "Aucune salle ne correspond exactement à votre besoin.<br>Contactez-nous pour une solution sur mesure.";
       resultBlock.style.display = "block";
       return;
     }
 
-    /* --- Choix de la meilleure salle --- */
-    matches.sort((a,b) => (a.max - nb) - (b.max - nb));
+    matches.sort((a, b) => (a.max - nb) - (b.max - nb));
     const best = matches[0];
 
-    const price = best.pricing[dur] ? best.pricing[dur] + " € HT" : "sur devis";
-    const label = dur === "demi" ? "demi-journée"
-               : dur === "journee" ? "journée"
-               : "soirée";
+    let priceKey = null;
+    if (dur && nb > 30 && best.pricing[`${dur}_30`]) {
+      priceKey = `${dur}_30`;
+    } else if (dur && best.pricing[dur]) {
+      priceKey = dur;
+    }
 
-    /* --- Affichage de la recommandation --- */
+    const label = dur === "demi"    ? "demi-journée"
+                : dur === "journee"  ? "journée"
+                : dur === "soiree"   ? "soirée"
+                : "durée non précisée";
+
+    const price = priceKey ? `${best.pricing[priceKey]} € HT` : "sur devis";
+
     resultBlock.innerHTML = `
       <strong>${best.name}</strong><br>
       Capacité : jusqu’à ${best.max} pers.<br>
@@ -238,31 +274,25 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     resultBlock.style.display = "block";
 
-    /* --- Bouton “Demander un devis” --- */
     document.getElementById("devis-btn").addEventListener("click", () => {
-      const pmrText  = wantPMR ? "oui" : "non";
-      const dateText = (dateStart && dateEnd)
-          ? `- Période souhaitée : du ${dateStart} au ${dateEnd}`
-          : "";
+      const pmrText = wantPMR ? "oui" : "non";
 
-      const messageTxt = `Bonjour,
+      const lignes = [
+        "Bonjour,\n",
+        "",
+        "Je souhaite organiser un événement avec les critères suivants :",
+        `- Type d’événement : ${type}`,
+        `- Nombre de participants : ${nb}`,
+        `- Durée : ${label}`,
+        (dateStart && dateEnd) ? `- Période souhaitée : du ${dateStart} au ${dateEnd}` : null,
+        `- Besoin d’accessibilité PMR : ${pmrText}\n`,
+        "",
+        "Pourriez-vous me faire une proposition adaptée ?",
+        "Merci d’avance."
+      ];
 
-Je souhaite organiser un événement avec les critères suivants :
+      const messageTxt = lignes.filter(Boolean).join("\n");
 
-  - Type d’événement : ${type}
-  - Nombre de participants : ${nb}
-  - Durée : ${label}
-  ${dateText}
-  - Besoin d’accessibilité PMR : ${pmrText}
-
-Pourriez-vous me faire une proposition adaptée ?
-Merci d’avance.`;
-
-      const mailBody = encodeURIComponent(messageTxt);
-      window.location.href = `mailto:contact@espace-trinite.fr?subject=Demande de devis&body=${mailBody}`;
-
-
-      /* 1) On tente de pré-remplir le formulaire “Contact” */
       const contactSection = document.getElementById("contact");
       const subjectField   = contactSection?.querySelector('input[placeholder*="Objet"], #contact-subject');
       const messageField   = contactSection?.querySelector('textarea, #contact-message');
@@ -270,19 +300,17 @@ Merci d’avance.`;
       if (subjectField && messageField) {
         subjectField.value = "Demande de devis";
         messageField.value = messageTxt;
-
-        /* Scroll doux vers la section contact */
         contactSection.scrollIntoView({ behavior: "smooth" });
-        closeAssistant();                      // ferme la pop-up
-      } else {
-        /* 2) Fallback : ouvre le client mail avec le message */
-        const mailBody = encodeURIComponent(messageTxt);
-        window.location.href =
-          `mailto:contact@espace-trinite.fr?subject=Demande de devis&body=${mailBody}`;
+
+        // Ferme le formulaire et libère le scroll
+        closeAssistant();
       }
     });
   });
 });
+
+
+
 
 
 
