@@ -26,9 +26,37 @@
 }
 
 .logo-accueil {
-  height: 70px;
-  margin: 0;
+  height: auto;   /* ← pour garder les proportions */
+  width: 60px;    /* ← adapte la largeur comme tu veux */
 }
+
+@media (max-width: 768px) {
+  .logo-accueil {
+    height: 50px;
+  }
+}
+
+/* Supprime le soulignement et garde la disposition flex */
+.brand-link {
+  display: flex;             /* ← flex au lieu de block */
+  align-items: center;       /* ← alignement vertical centré */
+  text-decoration: none;
+  color: inherit;
+  gap: 8px;                  /* ← petit espace entre logo et titre */
+}
+
+
+.brand-link .container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-link :hover {
+  color: #003973;
+}
+
 
 /* -----------------------
    NAVIGATION PRINCIPALE
@@ -176,8 +204,8 @@ nav {
 
 
 footer {
-  background: radial-gradient(ellipse at center, #007cf0 0%, #003973 100%);
-  color: #fff;
+  background: white;
+  color: 003973;
   text-align: center;
   padding: 30px 10px;
   font-size: 0.9rem;
@@ -189,7 +217,7 @@ footer nav {
 }
 
 footer a {
-  color: #e0f0ff;
+  color: black;
   margin: 0 10px;
   text-decoration: none;
   font-weight: 300;
@@ -197,34 +225,10 @@ footer a {
 }
 
 footer a:hover {
-  color: #ffffff;
+  color: #003973;
 }
 
 
 
-/* Structure horizontale */
-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-/* Regroupe logo et titre */
-.logo-accueil {
-  height: 50px;
-  margin-right: 8px; /* réduit l'espace entre logo et texte */
-}
-
-/* Aligne verticalement avec le logo */
-.titre-header {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: white;
-}
-
-/* Optionnel : espace entre logo+titre et nav */
-header nav {
-  margin-left: auto;
-}
 
