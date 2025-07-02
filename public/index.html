@@ -557,84 +557,58 @@
   =               SECTION : RESTAURATION                 =
   ===================================================== -->
 
-  <section id="restauration" class="section-restauration" aria-labelledby="titre-restauration">
+  <section id="restauration" class="section-restauration">
     <div class="container">
-      <h2 id="titre-restauration">RESTAURATION</h2>
+      <h2>RESTAURATION</h2>
 
       <div class="restauration-content">
-
-        <!-- Bloc image avec figure/figcaption sémantique -->
+        <!-- Bloc image avec balisage sémantique -->
         <figure class="restauration-img">
           <img 
             src="assets/img/salle-paris9-restauration.jpg" 
             alt="Buffet de restauration proposé à l'Espace Trinité, Paris 9"
-            loading="lazy">
-          <figcaption class="visually-hidden">Buffet disponible sur demande dans les salles de l’Espace Trinité</figcaption>
+            loading="lazy" />
         </figure>
 
-        <!-- Liste de prestations structurée -->
-        <div class="formule" role="list" aria-label="Formules de restauration proposées">
-          <div role="listitem">
-            <p><strong>Pause accueil</strong> <span>3,50 €</span></p>
-            <p>Thé, café, mini gâteaux</p>
-          </div>
+        <!-- Bloc texte -->
+        <div class="formule">
+          <p><strong>Pause accueil</strong> <span>3,50 €</span></p>
+          <p>Thé, café, mini gâteaux</p>
 
-          <div role="listitem">
-            <p><strong>Pause viennoiserie</strong> <span>6,00 €</span></p>
-            <p>Thé, café, mini viennoiseries</p>
-          </div>
+          <p><strong>Pause viennoiserie</strong> <span>6,00 €</span></p>
+          <p>Thé, café, mini viennoiseries</p>
 
-          <div role="listitem">
-            <p><strong>Pause complète</strong> <span>7,50 €</span></p>
-            <p>Thé, café, jus de fruit, viennoiseries</p>
-          </div>
+          <p><strong>Pause complète</strong> <span>7,50 €</span></p>
+          <p>Thé, café, jus de fruit, viennoiseries</p>
 
-          <div role="listitem">
-            <p><strong>Pause café</strong> <span>2,70 €</span></p>
-            <p>Café</p>
-          </div>
+          <p><strong>Pause café</strong> <span>2,70 €</span></p>
+          <p>Café</p>
 
-          <div role="listitem">
-            <p><strong>Pause thé - café</strong> <span>3,10 €</span></p>
-            <p>Thé, café</p>
-          </div>
+          <p><strong>Pause thé - café</strong> <span>3,10 €</span></p>
+          <p>Thé, café</p>
 
-          <div role="listitem">
-            <p><strong>Pause rafraîchissante</strong> <span>4,50 €</span></p>
-            <p>Thé, café, soft</p>
-          </div>
+          <p><strong>Pause rafraîchissante</strong> <span>4,50 €</span></p>
+          <p>Thé, café, soft</p>
 
-          <div role="listitem">
-            <p><strong>Eau minérale (bouteille 50cl)</strong> <span>1,70 €</span></p>
-            <p>Individuelle pour la journée</p>
-          </div>
+          <p><strong>Eau minérale (bouteille 50cl)</strong> <span>1,70 €</span></p>
+          <p>Individuelle pour la journée</p>
 
-          <div role="listitem">
-            <p><strong>Eau minérale (grande bouteille)</strong> <span>2,50 €</span></p>
-          </div>
+          <p><strong>Eau minérale (grande bouteille)</strong> <span>2,50 €</span></p>
 
-          <div role="listitem">
-            <p><strong>Supplément corbeille de fruits</strong> <span>3,50 €</span></p>
-            <p>Par personne</p>
-          </div>
+          <p><strong>Supplément corbeille de fruits</strong> <span>3,50 €</span></p>
+          <p>Par personne</p>
 
           <br>
 
-          <div role="listitem">
-            <p><strong>Coffret Medium</strong> <span>26,00 €</span></p>
-            <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
-          </div>
+          <p><strong>Coffret Medium</strong> <span>26,00 €</span></p>
+          <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
 
-          <div role="listitem">
-            <p><strong>Coffret Premium</strong> <span>29,00 €</span></p>
-            <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
-          </div>
+          <p><strong>Coffret Premium</strong> <span>29,00 €</span></p>
+          <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
 
           <br>
 
-          <div role="listitem">
-            <p><strong>Buffets et cocktails</strong> <span>Sur devis</span></p>
-          </div>
+          <p><strong>Buffets et cocktails</strong> <span>Sur devis</span></p>
         </div>
 
       </div>
@@ -645,26 +619,18 @@
   =               SECTION : CONTACT                      =
   ===================================================== -->
 
-  <section id="contact" class="section-contact" aria-labelledby="titre-contact">
+  <section id="contact" class="section-contact">
     <div class="container">
-      <h2 id="titre-contact">CONTACT</h2>
+      <h2>CONTACT</h2>
       <p class="intro">Une question, une demande particulière ? Écrivez-nous, nous vous répondrons rapidement.</p>
-
-      <form class="contact-form" action="#" method="post" aria-label="Formulaire de contact">
+      
+      <form class="contact-form">
         <div class="form-grid">
-          <label for="contact-nom" class="visually-hidden">Nom</label>
-          <input type="text" id="contact-nom" name="nom" placeholder="Votre nom" required>
-
-          <label for="contact-email" class="visually-hidden">Adresse email</label>
-          <input type="email" id="contact-email" name="email" placeholder="Votre email" required>
+          <input type="text" placeholder="Votre nom" required>
+          <input type="email" placeholder="Votre email" required>
         </div>
-
-        <label for="contact-objet" class="visually-hidden">Objet du message</label>
-        <input type="text" id="contact-objet" name="objet" placeholder="Objet" required>
-
-        <label for="contact-message" class="visually-hidden">Votre message</label>
-        <textarea id="contact-message" name="message" placeholder="Votre message..." rows="6" required></textarea>
-
+        <input type="text" placeholder="Objet" required>
+        <textarea id="contact-message" placeholder="Votre message..." rows="6" required></textarea>
         <button class="btn" type="submit">Envoyer le message</button>
       </form>
     </div>
