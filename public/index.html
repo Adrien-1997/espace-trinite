@@ -640,27 +640,24 @@
   =               SECTION : FORMULAIRE ASSISTANT         =
   ===================================================== -->
 
-    <section id="assistant-overlay" aria-labelledby="assistant-title" role="dialog" aria-modal="true" hidden>
+<section id="assistant-overlay">
     <div id="assistant-box">
       <div id="assistant-modal">
-        <h3 id="assistant-title">Trouvez votre salle idéale</h3>
-        <form id="assistant-form" aria-describedby="assistant-desc">
-          <p id="assistant-desc" class="visually-hidden">Répondez aux questions pour que nous vous suggérions une salle adaptée.</p>
-
+        <h3>Trouvez votre salle idéale</h3>
+        <div id="assistant-form">
           <div class="form-row">
             <label for="eventType">Type d'événement</label>
-            <select id="eventType" name="eventType" required>
+            <select id="eventType" required>
               <option value="" disabled selected>Type d'événement</option>
               <option value="reunion">Réunion (configuration en U)</option>
               <option value="conference">Conférence</option>
               <option value="classe">Salle de classe</option>
-              <option value="autre">Autre</option>
+              <option value="autre">Autre</option> <!-- 👈 Ajout -->
             </select>
           </div>
-
           <div class="form-row">
             <label for="participants">Nombre de participants</label>
-            <select id="participants" name="participants" required>
+            <select id="participants" required>
               <option value="" disabled selected>Nombre de participants</option>
               <option value="10">0-10 personnes</option>
               <option value="20">10-20 personnes</option>
@@ -671,42 +668,35 @@
               <option value="65">60-65 personnes</option>
             </select>
           </div>
-
           <div class="form-row">
             <label for="duration">Durée</label>
-            <select id="duration" name="duration" required>
+            <select id="duration" required>
               <option value="" disabled selected>Durée</option>
               <option value="demi">Demi‑journée</option>
               <option value="journee">Journée</option>
               <option value="horaire">Horaire</option>
             </select>
           </div>
-
           <div class="form-row">
             <label for="dateStart">Date souhaitée (début)</label>
             <input type="date" id="dateStart" name="dateStart">
           </div>
-
           <div class="form-row">
             <label for="dateEnd">Date souhaitée (fin)</label>
             <input type="date" id="dateEnd" name="dateEnd">
           </div>
-
           <div class="form-checkbox">
-            <input type="checkbox" id="pmr" name="pmr">
+            <input type="checkbox" id="pmr" />
             <label for="pmr">Accessible PMR</label>
           </div>
-
-          <div id="assistant-result" hidden></div>
-
-          <div class="actions">
-            <button class="btn btn-secondary" id="assistant-cancel" type="button">Annuler</button>
-            <button class="btn btn-primary" id="assistant-submit" type="submit">Voir la recommandation</button>
-          </div>
-        </form>
+        </div>
+        <div id="assistant-result" style="display:none;"></div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="assistant-cancel">Annuler</button>
+          <button class="btn btn-primary" id="assistant-submit">Voir la recommandation</button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- =====================================================
   =                     FOOTER                           =
