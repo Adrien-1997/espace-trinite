@@ -3,165 +3,198 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Espace Trinité</title>
+
+  <!-- TITRE & DESCRIPTION -->
+  <title>Espace Trinité – Location de salles à Paris 9</title>
+  <meta name="description" content="L’Espace Trinité propose la location de salles de réunion et de formation au cœur de Paris 9, à deux pas de Saint-Lazare. Un cadre lumineux, modulable et accessible.">
+
+  <!-- SEO TECHNIQUE -->
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Espace Trinité">
+  <meta name="language" content="fr">
+  <meta name="theme-color" content="#000000">
+
+  <!-- OPEN GRAPH POUR LES RÉSEAUX SOCIAUX -->
+  <meta property="og:title" content="Espace Trinité – Location de salles à Paris 9">
+  <meta property="og:description" content="Salles de réunion et de formation à louer à Paris 9, près de Saint-Lazare. Espace lumineux et convivial.">
+  <meta property="og:image" content="https://espace-trinite.web.app/assets/img/preview-opengraph.jpg">
+  <meta property="og:url" content="https://espace-trinite.web.app/">
+  <meta property="og:type" content="website">
+
+  <!-- LIENS CSS -->
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- POLICES & ICONES -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <script src="js/header.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/assistant.js"></script>
-  <script src="js/galerie.js"></script>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+
+  <!-- SCRIPTS -->
+  <script src="js/header.js" defer></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/assistant.js" defer></script>
+  <script src="js/galerie.js" defer></script>
 </head>
+
 <body>
-  <header id="site-header">
+
+  <!-- =====================================================
+  =                       HEADER                           =
+  ===================================================== -->
+
+  <header id="site-header" role="banner">
     <div class="container">
-      <a href="index.html" class="brand-link">   <!-- ← lien vers la Home -->
-        <img src="img/petit-logo.png" alt="Logo " class="logo-accueil">
+      <!-- Logo avec texte alternatif descriptif -->
+      <a href="index.html" class="brand-link" title="Retour à l'accueil Espace Trinité">
+        <img src="assets/logo/petit-logo.png" alt="Logo Espace Trinité - Location de salles à Paris 9" class="logo-accueil" loading="lazy">
       </a>
-      <nav>
-        <div class="burger" aria-label="Menu" aria-expanded="false">
+
+      <nav role="navigation" aria-label="Menu principal">
+        <div class="burger" aria-label="Ouvrir le menu de navigation" aria-expanded="false" tabindex="0">
           <span></span>
           <span></span>
           <span></span>
         </div>
+
         <ul class="nav-links">
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#apropos">À propos</a></li>
-          <li><a href="#salles">Salles</a></li>
-          <li><a href="#galerie">Galerie</a></li>
-          <li><a href="#tarifs">Tarifs</a></li>
-          <li><a href="#restauration">Restauration</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html#accueil" title="Retour à l'accueil">Accueil</a></li>
+          <li><a href="index.html#apropos" title="En savoir plus sur Espace Trinité">À propos</a></li>
+          <li><a href="index.html#salles" title="Nos salles à Paris 9">Salles</a></li>
+          <li><a href="index.html#galerie" title="Photos des salles">Galerie</a></li>
+          <li><a href="index.html#tarifs" title="Nos tarifs de location">Tarifs</a></li>
+          <li><a href="index.html#restauration" title="Services de restauration proposés">Restauration</a></li>
+          <li><a href="index.html#contact" title="Contactez-nous">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- =====================================================
+  =              SECTION : ACCUEIL / HERO                 =
+  ===================================================== -->
+
   <section id="accueil" class="hero">
     <div class="hero-overlay">
-      <div class="container ">
+      <div class="container">
 
         <div class="hero-grid">
-          <!-- Colonne A : pastilles -->
-          <div class="dot-column">
+
+          <!-- Colonne A : pastilles décoratives -->
+          <div class="dot-column" aria-hidden="true">
             <span class="dot dot-red"></span>
             <span class="dot dot-blue"></span>
             <span class="dot dot-yellow"></span>
             <span class="dot dot-green"></span>
           </div>
 
-          <!-- Colonne B : logo + texte -->
+          <!-- Colonne B : logo + contenu -->
           <div class="hero-content">
             <div class="accueil-logo">
-              <img src="img/grand-logo.png" alt="Espace Trinité">
+              <img src="assets/logo/grand-logo.png" alt="Logo de l’Espace Trinité" loading="lazy">
             </div>
-            <h2>Vos salles de travail<br>à deux pas de Saint-Lazare</h2>
-            <p>
-              Idéalement situé au cœur du 9<sup>e</sup> arrondissement de Paris, à deux pas de la
-              Gare Saint-Lazare, d’Auber et d’Opéra, l’Espace Trinité vous accueille dans un cadre
-              chaleureux et modulable.
-            </p>
-            <p>
-              Réunions privées ou professionnelles, séminaires, conférences, team buildings ou événements
-              sur mesure : notre équipe met à votre disposition des salles équipées et un accompagnement
-              personnalisé.
-            </p>
+            <h1>Vos salles de travail<br>à deux pas de Saint-Lazare</h1>
+            <p>Idéalement situé au cœur du 9<sup>e</sup> arrondissement de Paris, à deux pas de la Gare Saint-Lazare, d’Auber et d’Opéra, l’Espace Trinité vous accueille dans un cadre chaleureux.</p>
+            <p>Réunions professionnelles, séminaires, conférences ou événements sur mesure : notre équipe met à votre disposition des salles équipées et un accompagnement personnalisé.</p>
           </div>
 
-          <!-- Colonne C : cercle noir -->
-          <div class="hero-right">
+          <!-- Colonne C : élément décoratif -->
+          <div class="hero-right" aria-hidden="true">
             <div class="hero-circle"></div>
           </div>
         </div>
-        <h2 class="titre">Configurations et capacités des salles</h2>
-        <!-- Capacités des configurations de salle -->
-        <div class="capacity-list">
 
-          
+        <h2 class="titre">Configurations et capacités des salles</h2>
+
+        <div class="capacity-list">
 
           <div class="capacity-item">
             <div class="capacity-header">
-              <img src="img/u-table.png" alt="Réunion" class="capacity-icon">
+              <img src="assets/icons/u-table.png" alt="Disposition réunion" class="capacity-icon" loading="lazy">
               <span class="capacity-type">Réunion</span>
             </div>
             <div class="capacity-badges">
-              <span class="badge">Salle la plus grande : 39 pers</span>
+              <span class="badge">Salle la plus grande : 40 pers</span>
               <span class="badge">Nombre de salles : 4</span>
             </div>
           </div>
 
-
           <div class="capacity-item">
             <div class="capacity-header">
-              <img src="img/conference.png" alt="Conférence" class="capacity-icon">
+              <img src="assets/icons/conference.png" alt="Disposition conférence" class="capacity-icon" loading="lazy">
               <span class="capacity-type">Conférence</span>
             </div>
             <div class="capacity-badges">
-              <span class="badge">Salle la plus grande : 60 pers</span>
+              <span class="badge">Salle la plus grande : 65 pers</span>
               <span class="badge">Nombre de salles : 4</span>
             </div>
           </div>
 
           <div class="capacity-item">
             <div class="capacity-header">
-              <img src="img/cocktail.png" alt="Cocktail" class="capacity-icon">
-              <span class="capacity-type">Cocktail</span>
+              <img src="assets/icons/classe.png" alt="Disposition salle de classe" class="capacity-icon" loading="lazy">
+              <span class="capacity-type">Salle de classe</span>
             </div>
             <div class="capacity-badges">
-              <span class="badge">Salle la plus grande : 19 pers</span>
-              <span class="badge">Nombre de salles : 1</span>
+              <span class="badge">Salle la plus grande : 38 pers</span>
+              <span class="badge">Nombre de salles : 4</span>
             </div>
           </div>
 
           <div class="equipements">
-            <div class="tag"><i class="bi bi-display"></i> Vidéoprojecteur sonorisé</div>
-            <div class="tag"><i class="bi bi-mic"></i> Micro HF sur demande</div>
-            <div class="tag"><i class="bi bi-wifi"></i> Wifi internet fibre</div>
-            <div class="tag"><i class="bi bi-easel"></i> Paperboard</div>
-            <div class="tag"><i class="bi bi-snow"></i> Climatisation</div>
+            <div class="tag"><i class="bi bi-display" aria-hidden="true"></i> Vidéoprojecteur sonorisé</div>
+            <div class="tag"><i class="bi bi-mic" aria-hidden="true"></i> Micro HF sur demande</div>
+            <div class="tag"><i class="bi bi-wifi" aria-hidden="true"></i> Wifi internet fibre</div>
+            <div class="tag"><i class="bi bi-easel" aria-hidden="true"></i> Paperboard</div>
+            <div class="tag"><i class="bi bi-snow" aria-hidden="true"></i> Climatisation</div>
           </div>
 
         </div>
 
         <div class="devis">
           <div class="prix">
-            À partir de <strong>350&nbsp;€</strong><br>
+            À partir de <strong>405&nbsp;€</strong><br>
             <span class="petit">/ demi-journée</span>
           </div>
           <button class="assistant-toggle">Demander un devis</button>
-        <div class="gratuit">Devis gratuit</div>
+          <div class="gratuit">Devis gratuit</div>
+        </div>
+
       </div>
     </div>
   </section>
-
+  
+  <!-- =====================================================
+  =               SECTION : À PROPOS                      =
+  ===================================================== -->
 
   <section id="apropos" class="section-apropos">
     <div class="container">
-
       <h2>À PROPOS</h2>
 
       <div class="apropos-icons">
         <div class="icon-box">
-          <i class="bi bi-geo-alt-fill"></i>
-          <p>À Paris 9ème (75)</p>
+          <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+          <p>À Paris 9<sup>e</sup> (75)</p>
         </div>
         <div class="icon-box">
-          <i class="bi bi-calendar-event"></i>
+          <i class="bi bi-calendar-event" aria-hidden="true"></i>
           <p>De la demi-journée à la journée</p>
         </div>
         <div class="icon-box">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-person" aria-hidden="true"></i>
           <p>De 10 à 59 participants</p>
         </div>
         <div class="icon-box">
-          <i class="bi bi-globe"></i>
+          <i class="bi bi-globe" aria-hidden="true"></i>
           <p>Français, Anglais</p>
         </div>
       </div>
 
       <p>
-        Alliant histoire et modernité, nous vous proposons un cadre à la fois soigné et fonctionnel avec 290 m² sur plusieurs salles élégantes et modulables d’une capacité d'accueil de 10 à 60 places, équipées de vidéoprotection, sonorisation, Wi-Fi haut débit, climatisation, aux normes H&S, adaptables à toutes les configurations pour garantir à vos événements confort et fonctionnalité.
+        Alliant histoire et modernité, nous vous proposons un cadre à la fois soigné et fonctionnel avec 290 m² sur plusieurs salles élégantes et modulables d’une capacité d'accueil de 10 à 60 places, équipées de vidéoprotection, sonorisation, Wi-Fi haut débit, climatisation, aux normes H&amp;S, adaptables à toutes les configurations pour garantir à vos événements confort et fonctionnalité.
       </p>
       <p>
         Toutes nos salles sont aménageables dans la configuration que vous souhaitez. Ce lieu confidentiel et inspirant conjugue lumière naturelle ou filtrée, technologie et service sur mesure pour accueillir vos événements professionnels en toute sérénité.
@@ -171,9 +204,9 @@
       </p>
 
       <div class="info-apropos">
-        <div class="lieu">
+        <section class="lieu" aria-label="Localisation de l’Espace Trinité à Paris 9">
           <h3>📍 Le lieu</h3>
-          <p><strong>🗺️ Adresse :</strong><br>3 rue de la Trinité, Paris 9e</p>
+          <p><strong>🗺️ Adresse :</strong><br>3 rue de la Trinité, Paris 9<sup>e</sup></p>
 
           <p class="label">🚌 Accès :</p>
           <ul class="acces-list">
@@ -181,7 +214,7 @@
             <li>Métro Opéra <span class="small">(Ligne 8)</span></li>
             <li>Métro Auber <span class="small">(Ligne 7 + RER A)</span></li>
           </ul>
-        </div>
+        </section>
 
         <div class="map-container">
           <iframe
@@ -189,173 +222,192 @@
             width="100%"
             height="350"
             style="border:0;"
-            allowfullscreen=""
+            title="Carte Google Maps – Espace Trinité, 3 rue de la Trinité, Paris 9e"
+            allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
       </div>
-
-
     </div>
   </section>
 
-  <section id="salles" class="section-salles">
+  <!-- =====================================================
+  =               SECTION : NOS SALLES                   =
+  ===================================================== -->
+
+  <section id="salles" class="section-salles" aria-labelledby="titre-salles">
     <div class="container">
-      <h2>NOS SALLES</h2>
-      <p class="intro">Espaces lumineux et modulables de 35 à 80 m² pour vos réunions, séminaires, formations ou conférences.</p>
+      <h2 id="titre-salles">NOS SALLES</h2>
+
+      <p class="intro">
+        Espaces lumineux et modulables de 35 à 80 m² pour vos réunions, séminaires, formations ou conférences.
+        <br>Configuration en îlots pour ateliers ou groupes de travail, ou travail sur la mezzanine (salle Goursat), nous consulter.
+      </p>
 
       <div class="grid-salles">
 
         <!-- Salle Pierre Goursat -->
-        <div class="card-salle card-rouge">
-          <img src="img/Salle Pierre Goursat 1.jpg" alt="Salle Pierre Goursat">
-
-          <!-- Ajout du lien sous l'image -->
+        <div class="card-salle card-rouge" role="region" aria-labelledby="titre-goursat">
+          <img src="assets/img/salle-goursat-paris9-1.jpg" 
+              alt="Salle Pierre Goursat à Paris 9, lumière naturelle sur deux niveaux"
+              loading="lazy" title="Salle Pierre Goursat - Espace Trinité Paris 9">
+          
           <div class="voir-plus">
-            <a href="#goursat">+ de photos</a>
+            <a href="#goursat" title="Voir plus de photos de la salle Pierre Goursat">+ de photos</a>
           </div>
 
-          <h3>Salle Pierre Goursat</h3>
+          <h3 id="titre-goursat">Salle Pierre Goursat</h3>
           <p>Charme unique et lumière naturelle, pour des formats jusqu’à 25 personnes, adaptée pour travaux en petits groupes.</p>
           <p class="superficie">70 m² sur deux niveaux – Lumière du jour</p>
+
           <div class="agencements">
             <div class="agencement-item">
-              <img src="img/u-table.png" alt="U">
-              <span>16 personnes en U</span>
+              <img src="assets/icons/u-table.png" alt="Disposition en U" loading="lazy">
+              <span>18 personnes en U</span>
             </div>
             <div class="agencement-item">
-              <img src="img/conference.png" alt="Conférence">
-              <span>35 personnes en style conférence</span>
+              <img src="assets/icons/conference.png" alt="Disposition conférence" loading="lazy">
+              <span>25 personnes en style conférence</span>
             </div>
             <div class="agencement-item">
-              <img src="img/repas.png" alt="Déjeuner" class="tag-icon">
-              <span>40 personnes en déjeuner assis</span>
-            </div>
-            <div class="agencement-item">
-              <img src="img/cocktail.png" alt="Cocktail" class="tag-icon">
-              <span>60 personnes dans un espace cocktail</span>
+              <img src="assets/icons/classe.png" alt="Disposition classe" loading="lazy">
+              <span>20 personnes en salle de classe</span>
             </div>
           </div>
+
           <div class="equipements">
-            <div class="tag"><i class="bi bi-display"></i> Vidéoprojecteur sonorisé</div>
-            <div class="tag"><i class="bi bi-tv"></i> Mur de projection dédié</div>
-            <div class="tag"><i class="bi bi-wifi"></i> Wifi internet fibre</div>
-            <div class="tag"><i class="bi bi-easel"></i> Paperboard</div>
-            <div class="tag"><i class="bi bi-snow"></i> Climatisation</div>
+            <div class="tag"><i class="bi bi-display" aria-hidden="true"></i> Vidéoprojecteur sonorisé</div>
+            <div class="tag"><i class="bi bi-tv" aria-hidden="true"></i> Mur de projection dédié</div>
+            <div class="tag"><i class="bi bi-wifi" aria-hidden="true"></i> Wifi internet fibre</div>
+            <div class="tag"><i class="bi bi-easel" aria-hidden="true"></i> Paperboard</div>
+            <div class="tag"><i class="bi bi-snow" aria-hidden="true"></i> Climatisation</div>
           </div>
         </div>
 
         <!-- Salle Estienne d'Orves -->
-        <div class="card-salle card-bleu">
-          <img src="img/Salle d'Estienne d'Orves 3.jpg" alt="Salle Estienne d’Orves">
+        <div class="card-salle card-bleu" role="region" aria-labelledby="titre-orves">
+          <img src="assets/img/salle-orves-paris9-1.jpg" 
+              alt="Salle Estienne d’Orves à Paris 9, disposition modulable"
+              loading="lazy" title="Salle Estienne d’Orves - Espace Trinité Paris 9">
 
-          <!-- Ajout du lien sous l'image -->
           <div class="voir-plus">
-            <a href="#orves">+ de photos</a>
+            <a href="#orves" title="Voir plus de photos de la salle Estienne d’Orves">+ de photos</a>
           </div>
 
-          <h3>Salle Estienne d’Orves</h3>
+          <h3 id="titre-orves">Salle Estienne d’Orves</h3>
           <p>Une salle aux lignes classiques et à l’élégance discrète, parfaite pour des rencontres jusqu’à 20 personnes.</p>
           <p class="superficie">35 m² – Lumière du jour</p>
+
           <div class="agencements">
             <div class="agencement-item">
-              <img src="img/u-table.png" alt="U">
+              <img src="assets/icons/u-table.png" alt="Disposition en U" loading="lazy">
               <span>16 personnes en U</span>
             </div>
             <div class="agencement-item">
-              <img src="img/conference.png" alt="Conférence">
+              <img src="assets/icons/conference.png" alt="Disposition conférence" loading="lazy">
               <span>25 personnes en style conférence</span>
             </div>
             <div class="agencement-item">
-              <img src="img/table.png" alt="Table fermée">
-              <span>20 personnes en table fermée</span>
+              <img src="assets/icons/classe.png" alt="Disposition classe" loading="lazy">
+              <span>18 personnes en salle de classe</span>
             </div>
           </div>
+
           <div class="equipements">
-            <div class="tag"><i class="bi bi-tv"></i> Moniteur de projection sonorisé</div>
-            <div class="tag"><i class="bi bi-wifi"></i> Wifi internet fibre</div>
-            <div class="tag"><i class="bi bi-easel"></i> Paperboard</div>
-            <div class="tag"><i class="bi bi-snow"></i> Climatisation</div>
+            <div class="tag"><i class="bi bi-tv" aria-hidden="true"></i> Moniteur de projection sonorisé</div>
+            <div class="tag"><i class="bi bi-wifi" aria-hidden="true"></i> Wifi internet fibre</div>
+            <div class="tag"><i class="bi bi-easel" aria-hidden="true"></i> Paperboard</div>
+            <div class="tag"><i class="bi bi-snow" aria-hidden="true"></i> Climatisation</div>
           </div>
         </div>
 
         <!-- Salle Olivier Messiaen -->
-        <div class="card-salle card-jaune">
-          <img src="img/Salle Olivier Messiaen 3.jpg" alt="Salle Olivier Messiaen">
+        <div class="card-salle card-jaune" role="region" aria-labelledby="titre-messiaen">
+          <img src="assets/img/salle-messiaen-paris9-2.jpg" 
+              alt="Salle Olivier Messiaen à Paris 9, pour conférences ou séminaires"
+              loading="lazy" title="Salle Olivier Messiaen - Espace Trinité Paris 9">
 
-          <!-- Ajout du lien sous l'image -->
           <div class="voir-plus">
-            <a href="#messiaen">+ de photos</a>
+            <a href="#messiaen" title="Voir plus de photos de la salle Olivier Messiaen">+ de photos</a>
           </div>
 
-          <h3>Salle Olivier Messiaen</h3>
+          <h3 id="titre-messiaen">Salle Olivier Messiaen</h3>
           <p>Une salle à la lumière tamisée idéale pour accueillir vos conférences de 30 à 60 personnes. Son style sobre japonisant permettra d’accueillir vos invités pour un séminaire d’entreprise.</p>
           <p class="superficie">80 m² en sous-sol – Éclairages étudiés (non accessible PMR)</p>
+
           <div class="agencements">
             <div class="agencement-item">
-              <img src="img/u-table.png" alt="U">
-              <span>36 personnes en U</span>
+              <img src="assets/icons/u-table.png" alt="Disposition en U" loading="lazy">
+              <span>40 personnes en U</span>
             </div>
             <div class="agencement-item">
-              <img src="img/conference.png" alt="Conférence">
+              <img src="assets/icons/conference.png" alt="Disposition conférence" loading="lazy">
               <span>65 personnes en style conférence</span>
             </div>
             <div class="agencement-item">
-              <img src="img/table.png" alt="Table fermée">
-              <span>40 personnes en table fermée</span>
+              <img src="assets/icons/classe.png" alt="Disposition classe" loading="lazy">
+              <span>38 personnes en salle de classe</span>
             </div>
           </div>
+
           <div class="equipements">
-            <div class="tag"><i class="bi bi-display"></i> Vidéoprojecteur sonorisé</div>
-            <div class="tag"><i class="bi bi-mic"></i> Micro filaire HF sur demande</div>
-            <div class="tag"><i class="bi bi-wifi"></i> Wifi internet fibre</div>
-            <div class="tag"><i class="bi bi-tv"></i> Écran de projection électrique</div>
-            <div class="tag"><i class="bi bi-easel"></i> Paperboard</div>
-            <div class="tag"><i class="bi bi-snow"></i> Climatisation</div>
-            <div class="tag"><i class="bi bi-wind"></i> Extracteur d’air</div>
+            <div class="tag"><i class="bi bi-display" aria-hidden="true"></i> Vidéoprojecteur sonorisé</div>
+            <div class="tag"><i class="bi bi-mic" aria-hidden="true"></i> Micro filaire HF sur demande</div>
+            <div class="tag"><i class="bi bi-wifi" aria-hidden="true"></i> Wifi internet fibre</div>
+            <div class="tag"><i class="bi bi-tv" aria-hidden="true"></i> Écran de projection électrique</div>
+            <div class="tag"><i class="bi bi-easel" aria-hidden="true"></i> Paperboard</div>
+            <div class="tag"><i class="bi bi-snow" aria-hidden="true"></i> Climatisation</div>
+            <div class="tag"><i class="bi bi-wind" aria-hidden="true"></i> Extracteur d’air</div>
           </div>
         </div>
 
         <!-- Salle La Bruyère -->
-        <div class="card-salle card-vert">
-          <img src="img/Salle La Bruyère 1.jpg" alt="Salle La Bruyère">
+        <div class="card-salle card-vert" role="region" aria-labelledby="titre-bruyere">
+          <img src="assets/img/salle-bruyere-paris9-1.jpg" 
+              alt="Salle La Bruyère à Paris 9, modulable et lumineuse"
+              loading="lazy" title="Salle La Bruyère - Espace Trinité Paris 9">
 
-          <!-- Ajout du lien sous l'image -->
           <div class="voir-plus">
-            <a href="#labruyere">+ de photos</a>
+            <a href="#labruyere" title="Voir plus de photos de la salle La Bruyère">+ de photos</a>
           </div>
 
-          <h3>Salle La Bruyère</h3>
+          <h3 id="titre-bruyere">Salle La Bruyère</h3>
           <p>Une salle moderne et lumineuse, entièrement équipée et modulable pour accueillir jusqu’à 40 personnes.</p>
           <p class="superficie">70 m² – Lumière du jour</p>
+
           <div class="agencements">
             <div class="agencement-item">
-              <img src="img/u-table.png" alt="U">
-              <span>28 personnes en U</span>
+              <img src="assets/icons/u-table.png" alt="Disposition en U" loading="lazy">
+              <span>30 personnes en U</span>
             </div>
             <div class="agencement-item">
-              <img src="img/conference.png" alt="Conférence">
-              <span>60 personnes en style conférence</span>
+              <img src="assets/icons/conference.png" alt="Disposition conférence" loading="lazy">
+              <span>50 personnes en style conférence</span>
             </div>
             <div class="agencement-item">
-              <img src="img/table.png" alt="Table fermée">
-              <span>32 personnes en table fermée</span>
+              <img src="assets/icons/classe.png" alt="Disposition classe" loading="lazy">
+              <span>30 personnes en salle de classe</span>
             </div>
           </div>
+
           <div class="equipements">
-            <div class="tag"><i class="bi bi-display"></i> Vidéoprojecteur sonorisé</div>
-            <div class="tag"><i class="bi bi-mic"></i> Micro filaire et HF sur demande</div>
-            <div class="tag"><i class="bi bi-wifi"></i> Wifi internet fibre</div>
-            <div class="tag"><i class="bi bi-tv"></i> Écran de projection électrique</div>
-            <div class="tag"><i class="bi bi-easel"></i> Paperboard</div>
-            <div class="tag"><i class="bi bi-snow"></i> Climatisation</div>
+            <div class="tag"><i class="bi bi-display" aria-hidden="true"></i> Vidéoprojecteur sonorisé</div>
+            <div class="tag"><i class="bi bi-mic" aria-hidden="true"></i> Micro filaire et HF sur demande</div>
+            <div class="tag"><i class="bi bi-wifi" aria-hidden="true"></i> Wifi internet fibre</div>
+            <div class="tag"><i class="bi bi-tv" aria-hidden="true"></i> Écran de projection électrique</div>
+            <div class="tag"><i class="bi bi-easel" aria-hidden="true"></i> Paperboard</div>
+            <div class="tag"><i class="bi bi-snow" aria-hidden="true"></i> Climatisation</div>
           </div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- =====================================================
+  =               SECTION : GALERIE                       =
+  ===================================================== -->
 
   <section id="galerie" class="gallery-section">
     <div class="container">
@@ -372,220 +424,277 @@
 
       <!-- GALERIE HORIZONTALE -->
       <div class="gallery-scroll-container">
+
         <!-- ACCUEIL -->
         <div class="gallery-slide" id="accueil">
           <div class="gallery-mosaic">
-            <div class="grid-item"><img src="img/a1.JPG" alt="Accueil 1"></div>
-            <div class="grid-item wide"><img src="img/a2.JPG" alt="Accueil 2"></div>
-            <div class="grid-item"><img src="img/a3.JPG" alt="Accueil 3"></div>
-            <div class="grid-item"><img src="img/a4.JPG" alt="Accueil 4"></div>
-            <div class="grid-item"><img src="img/a5.JPG" alt="Accueil 5"></div>
-            <div class="grid-item wide"><img src="img/a6.JPG" alt="Accueil 6"></div>
+            <div class="grid-item wide"><img src="assets/img/accueil-espace-trinite-1.jpg" alt="Accueil Espace Trinité 1"></div>
+            <div class="grid-item"><img src="assets/img/accueil-espace-trinite-2.jpg" alt="Accueil Espace Trinité 2"></div>
+            <div class="grid-item tall"><img src="assets/img/accueil-espace-trinite-3.jpg" alt="Accueil Espace Trinité 3"></div>
+            <div class="grid-item"><img src="assets/img/accueil-espace-trinite-4.jpg" alt="Accueil Espace Trinité 4"></div>
+            <div class="grid-item wide"><img src="assets/img/accueil-espace-trinite-5.jpg" alt="Accueil Espace Trinité 5"></div>
+            <div class="grid-item"><img src="assets/img/accueil-espace-trinite-6.jpg" alt="Accueil Espace Trinité 6"></div>
+            <div class="grid-item tall"><img src="assets/img/accueil-espace-trinite-7.jpg" alt="Accueil Espace Trinité 7"></div>
           </div>
         </div>
 
-        <!-- PIERRE GOURSAT -->
+        <!-- SALLE PIERRE GOURSAT -->
         <div class="gallery-slide rouge" id="goursat">
           <div class="gallery-mosaic">
-            <div class="grid-item wide"><img src="img/g1.JPG" alt="Goursat 1"></div>
-            <div class="grid-item"><img src="img/g2.JPG" alt="Goursat 2"></div>
-            <div class="grid-item"><img src="img/g3.JPG" alt="Goursat 3"></div>
-            <div class="grid-item"><img src="img/g4.JPG" alt="Goursat 4"></div>
-            <div class="grid-item"><img src="img/g5.JPG" alt="Goursat 5"></div>
-            <div class="grid-item wide"><img src="img/g6.JPG" alt="Goursat 6"></div>
+            <div class="grid-item"><img src="assets/img/salle-goursat-paris9-1.jpg" alt="Salle Pierre Goursat Paris 9 - Vue 1"></div>
+            <div class="grid-item wide"><img src="assets/img/salle-goursat-paris9-2.jpg" alt="Salle Pierre Goursat Paris 9 - Vue 2"></div>
+            <div class="grid-item"><img src="assets/img/salle-goursat-paris9-3.jpg" alt="Salle Pierre Goursat Paris 9 - Vue 3"></div>
+            <div class="grid-item tall"><img src="assets/img/salle-goursat-paris9-4.jpg" alt="Salle Pierre Goursat Paris 9 - Vue 4"></div>
+            <div class="grid-item"><img src="assets/img/salle-goursat-paris9-5.jpg" alt="Salle Pierre Goursat Paris 9 - Vue 5"></div>
+            <div class="grid-item"><img src="assets/img/salle-goursat-paris9-6.jpg" alt="Salle Pierre Goursat Paris 9 - Vue 6"></div>
+            <div class="grid-item wide"><img src="assets/img/salle-goursat-paris9-7.jpg" alt="Salle Pierre Goursat Paris 9 - Vue 7"></div>
+            <div class="grid-item"><img src="assets/img/salle-goursat-paris9-8.jpg" alt="Salle Pierre Goursat Paris 9 - Vue 8"></div>
+            <div class="grid-item tall"><img src="assets/img/salle-goursat-paris9-pause.jpg" alt="Salle Pierre Goursat – Pause café Paris 9"></div>
+            <div class="grid-item"><img src="assets/img/salle-goursat-paris9-buffet.jpg" alt="Salle Pierre Goursat – Buffet bas Paris 9"></div>
           </div>
         </div>
 
-        <!-- ESTIENNE D'ORVES -->
+        <!-- SALLE ESTIENNE D'ORVES -->
         <div class="gallery-slide bleu" id="orves">
           <div class="gallery-mosaic">
-            <div class="grid-item"><img src="img/eo1.JPG" alt="Orves 1"></div>
-            <div class="grid-item wide"><img src="img/eo2.JPG" alt="Orves 2"></div>
-            <div class="grid-item"><img src="img/eo3.JPG" alt="Orves 3"></div>
-            <div class="grid-item wide"><img src="img/eo4.JPG" alt="Orves 4"></div>
+            <div class="grid-item wide"><img src="assets/img/salle-orves-paris9-1.jpg" alt="Salle Estienne d'Orves Paris 9 - Vue 1"></div>
+            <div class="grid-item"><img src="assets/img/salle-orves-paris9-2.jpg" alt="Salle Estienne d'Orves Paris 9 - Vue 2"></div>
+            <div class="grid-item tall"><img src="assets/img/salle-orves-paris9-3.jpg" alt="Salle Estienne d'Orves Paris 9 - Vue 3"></div>
+            <div class="grid-item"><img src="assets/img/salle-orves-paris9-4.jpg" alt="Salle Estienne d'Orves Paris 9 - Vue 4"></div>
+            <div class="grid-item wide"><img src="assets/img/salle-orves-paris9-5.JPG" alt="Salle Estienne d'Orves Paris 9 - Vue 5"></div>
           </div>
         </div>
 
-        <!-- OLIVIER MESSIAEN -->
+        <!-- SALLE OLIVIER MESSIAEN -->
         <div class="gallery-slide jaune" id="messiaen">
           <div class="gallery-mosaic">
-            <div class="grid-item"><img src="img/m1.JPG" alt="Messiaen 1"></div>
-            <div class="grid-item wide"><img src="img/m2.JPG" alt="Messiaen 2"></div>
-            <div class="grid-item"><img src="img/m3.JPG" alt="Messiaen 3"></div>
-            <div class="grid-item wide"><img src="img/m5.JPG" alt="Messiaen 5"></div>
+            <div class="grid-item wide"><img src="assets/img/salle-messiaen-paris9-1.jpg" alt="Salle Olivier Messiaen Paris 9 - Vue 1"></div>
+            <div class="grid-item"><img src="assets/img/salle-messiaen-paris9-2.jpg" alt="Salle Olivier Messiaen Paris 9 - Vue 2"></div>
+            <div class="grid-item tall"><img src="assets/img/salle-messiaen-paris9-3.jpg" alt="Salle Olivier Messiaen Paris 9 - Vue 3"></div>
+            <div class="grid-item"><img src="assets/img/salle-messiaen-paris9-4.jpg" alt="Salle Olivier Messiaen Paris 9 - Vue 4"></div>
+            <div class="grid-item wide"><img src="assets/img/salle-messiaen-paris9-5.jpg" alt="Salle Olivier Messiaen Paris 9 - Vue 5"></div>
+            <div class="grid-item"><img src="assets/img/salle-messiaen-paris9-6.jpg" alt="Salle Olivier Messiaen Paris 9 - Vue 6"></div>
+            <div class="grid-item tall"><img src="assets/img/salle-messiaen-paris9-7.jpg" alt="Salle Olivier Messiaen Paris 9 - Vue 7"></div>
           </div>
         </div>
 
-        <!-- LA BRUYÈRE -->
+        <!-- SALLE LA BRUYÈRE -->
         <div class="gallery-slide vert" id="labruyere">
           <div class="gallery-mosaic">
-            <div class="grid-item wide"><img src="img/b1.JPG" alt="Bruyère 1"></div>
-            <div class="grid-item"><img src="img/b2.JPG" alt="Bruyère 2"></div>
-            <div class="grid-item"><img src="img/b3.JPG" alt="Bruyère 3"></div>
-            <div class="grid-item"><img src="img/b4.JPG" alt="Bruyère 4"></div>
-            <div class="grid-item"><img src="img/b5.JPG" alt="Bruyère 5"></div>
-            <div class="grid-item wide"><img src="img/b6.JPG" alt="Bruyère 6"></div>
+            <div class="grid-item"><img src="assets/img/salle-bruyere-paris9-1.jpg" alt="Salle La Bruyère Paris 9 - Vue 1"></div>
+            <div class="grid-item wide"><img src="assets/img/salle-bruyere-paris9-2.jpg" alt="Salle La Bruyère Paris 9 - Vue 2"></div>
+            <div class="grid-item"><img src="assets/img/salle-bruyere-paris9-3.jpg" alt="Salle La Bruyère Paris 9 - Vue 3"></div>
+            <div class="grid-item tall"><img src="assets/img/salle-bruyere-paris9-4.jpg" alt="Salle La Bruyère Paris 9 - Vue 4"></div>
+            <div class="grid-item"><img src="assets/img/salle-bruyere-paris9-5.jpg" alt="Salle La Bruyère Paris 9 - Vue 5"></div>
+            <div class="grid-item wide"><img src="assets/img/salle-bruyere-paris9-6.jpg" alt="Salle La Bruyère Paris 9 - Vue 6"></div>
+            <div class="grid-item"><img src="assets/img/salle-bruyere-paris9-7.jpg" alt="Salle La Bruyère Paris 9 - Vue 7"></div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section id="tarifs" class="section-tarifs">
+  <!-- =====================================================
+  =               SECTION : TARIFS                       =
+  ===================================================== -->
+
+  <section id="tarifs" class="section-tarifs" aria-labelledby="titre-tarifs">
     <div class="container">
-      <h2>TARIFS</h2>
+      <h2 id="titre-tarifs">TARIFS</h2>
       <p class="intro">Tarifs HT applicables à partir du 1er septembre 2025.</p>
 
-      <div class="tarif-grid">
+      <div class="tarif-grid" role="region" aria-label="Tarifs par salle de réunion">
 
-        <div class="tarif-card rouge">
-          <h3>Salle Pierre Goursat</h3>
+        <article class="tarif-card rouge" aria-labelledby="tarif-goursat">
+          <h3 id="tarif-goursat">Salle Pierre Goursat</h3>
           <p><strong>Journée :</strong> 640 €</p>
           <p><strong>Demi-journée :</strong> 460 €</p>
           <p><strong>Tarif horaire :</strong> 150 €</p>
-        </div>
+        </article>
 
-        <div class="tarif-card bleu">
-          <h3>Salle Etienne d'Orves</h3>
+        <article class="tarif-card bleu" aria-labelledby="tarif-orves">
+          <h3 id="tarif-orves">Salle Etienne d'Orves</h3>
           <p><strong>Journée :</strong> 580 €</p>
           <p><strong>Demi-journée :</strong> 405 €</p>
           <p><strong>Tarif horaire :</strong> 140 €</p>
-        </div>
+        </article>
 
-        <div class="tarif-card jaune">
-          <h3>Salle Olivier Messiaen</h3>
+        <article class="tarif-card jaune" aria-labelledby="tarif-messiaen">
+          <h3 id="tarif-messiaen">Salle Olivier Messiaen</h3>
           <p><strong>Journée :</strong> 740 €</p>
           <p><strong>Demi-journée :</strong> 540 €</p>
           <p><strong>Tarif horaire :</strong> 190 €</p>
-        </div>
+        </article>
 
-        <div class="tarif-card vert">
-          <h3>Salle La Bruyère</h3>
+        <article class="tarif-card vert" aria-labelledby="tarif-bruyere">
+          <h3 id="tarif-bruyere">Salle La Bruyère</h3>
           <p><strong>Journée :</strong> 800 €</p>
           <p><strong>Demi-journée :</strong> 580 €</p>
           <p><strong>Tarif horaire :</strong> 200 €</p>
-        </div>
+        </article>
 
       </div>
 
-      <div class="tarif-grid" style="margin-top: 40px;">
-        <div class="tarif-card" style="grid-column: span 2;">
-          <h3>Forfaits Assemblées Générales</h3>
+      <div class="tarif-grid" style="margin-top: 40px;" role="region" aria-label="Forfaits Assemblées Générales">
+        <article class="tarif-card" style="grid-column: span 2;" aria-labelledby="tarif-ag">
+          <h3 id="tarif-ag">Forfaits Assemblées Générales</h3>
           <p><strong>1 à 10 personnes :</strong> 350 €</p>
           <p><strong>11 à 20 personnes :</strong> 400 €</p>
           <p><strong>21 à 30 personnes :</strong> 450 €</p>
           <p><strong>31 à 50 personnes :</strong> 500 €</p>
-        </div>
+        </article>
       </div>
 
-      <!-- Second bouton (section TARIFS) -->
       <div class="btn-wrapper">
-        <button class="btn assistant-toggle">Demander un devis</button>
+        <button class="btn assistant-toggle" aria-label="Demander un devis pour une salle">Demander un devis</button>
       </div>
 
     </div>
   </section>
+  
+  <!-- =====================================================
+  =               SECTION : RESTAURATION                 =
+  ===================================================== -->
 
-
-  <section id="restauration" class="section-restauration">
+  <section id="restauration" class="section-restauration" aria-labelledby="titre-restauration">
     <div class="container">
-      <h2>RESTAURATION</h2>
+      <h2 id="titre-restauration">RESTAURATION</h2>
 
       <div class="restauration-content">
-        <!-- Bloc image -->
-        <div class="restauration-img">
-          <img src="img/restauration.jpg" alt="Restauration">
-        </div>
-        <!-- Bloc texte -->
-        <div class="formule">
-          <p><strong>Pause accueil</strong> <span>3,50 €</span></p>
-          <p>Thé, café, mini gâteaux</p>
 
-          <p><strong>Pause viennoiserie</strong> <span>6,00 €</span></p>
-          <p>Thé, café, mini viennoiseries</p>
+        <!-- Bloc image avec figure/figcaption sémantique -->
+        <figure class="restauration-img">
+          <img 
+            src="assets/img/salle-paris9-restauration.jpg" 
+            alt="Buffet de restauration proposé à l'Espace Trinité, Paris 9"
+            loading="lazy">
+          <figcaption class="visually-hidden">Buffet disponible sur demande dans les salles de l’Espace Trinité</figcaption>
+        </figure>
 
-          <p><strong>Pause complète</strong> <span>7,50 €</span></p>
-          <p>Thé, café, jus de fruit, viennoiseries</p>
+        <!-- Liste de prestations structurée -->
+        <div class="formule" role="list" aria-label="Formules de restauration proposées">
+          <div role="listitem">
+            <p><strong>Pause accueil</strong> <span>3,50 €</span></p>
+            <p>Thé, café, mini gâteaux</p>
+          </div>
 
-          <p><strong>Pause café</strong> <span>2,70 €</span></p>
-          <p>Café</p>
+          <div role="listitem">
+            <p><strong>Pause viennoiserie</strong> <span>6,00 €</span></p>
+            <p>Thé, café, mini viennoiseries</p>
+          </div>
 
-          <p><strong>Pause thé - café</strong> <span>3,10 €</span></p>
-          <p>Thé, café</p>
+          <div role="listitem">
+            <p><strong>Pause complète</strong> <span>7,50 €</span></p>
+            <p>Thé, café, jus de fruit, viennoiseries</p>
+          </div>
 
-          <p><strong>Pause rafraîchissante</strong> <span>4,50 €</span></p>
-          <p>Thé, café, soft</p>
+          <div role="listitem">
+            <p><strong>Pause café</strong> <span>2,70 €</span></p>
+            <p>Café</p>
+          </div>
 
-          <p><strong>Eau minérale (bouteille 50cl)</strong> <span>1,70 €</span></p>
-          <p>Individuelle pour la journée</p>
+          <div role="listitem">
+            <p><strong>Pause thé - café</strong> <span>3,10 €</span></p>
+            <p>Thé, café</p>
+          </div>
 
-          <p><strong>Eau minérale (grande bouteille)</strong> <span>2,50 €</span></p>
+          <div role="listitem">
+            <p><strong>Pause rafraîchissante</strong> <span>4,50 €</span></p>
+            <p>Thé, café, soft</p>
+          </div>
 
-          <p><strong>Supplément corbeille de fruits</strong> <span>3,50 €</span></p>
-          <p>Par personne</p>
+          <div role="listitem">
+            <p><strong>Eau minérale (bouteille 50cl)</strong> <span>1,70 €</span></p>
+            <p>Individuelle pour la journée</p>
+          </div>
+
+          <div role="listitem">
+            <p><strong>Eau minérale (grande bouteille)</strong> <span>2,50 €</span></p>
+          </div>
+
+          <div role="listitem">
+            <p><strong>Supplément corbeille de fruits</strong> <span>3,50 €</span></p>
+            <p>Par personne</p>
+          </div>
 
           <br>
 
-          <p><strong>Coffret Medium</strong> <span>26,00 €</span></p>
-          <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
+          <div role="listitem">
+            <p><strong>Coffret Medium</strong> <span>26,00 €</span></p>
+            <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
+          </div>
 
-          <p><strong>Coffret Premium</strong> <span>29,00 €</span></p>
-          <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
+          <div role="listitem">
+            <p><strong>Coffret Premium</strong> <span>29,00 €</span></p>
+            <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
+          </div>
 
           <br>
 
-          <p><strong>Buffets et cocktails</strong> <span>Sur devis</span></p>
+          <div role="listitem">
+            <p><strong>Buffets et cocktails</strong> <span>Sur devis</span></p>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
+  <!-- =====================================================
+  =               SECTION : CONTACT                      =
+  ===================================================== -->
 
-  <section id="contact" class="section-contact">
+  <section id="contact" class="section-contact" aria-labelledby="titre-contact">
     <div class="container">
-      <h2>CONTACT</h2>
+      <h2 id="titre-contact">CONTACT</h2>
       <p class="intro">Une question, une demande particulière ? Écrivez-nous, nous vous répondrons rapidement.</p>
-      
-      <form class="contact-form">
+
+      <form class="contact-form" action="#" method="post" aria-label="Formulaire de contact">
         <div class="form-grid">
-          <input type="text" placeholder="Votre nom" required>
-          <input type="email" placeholder="Votre email" required>
+          <label for="contact-nom" class="visually-hidden">Nom</label>
+          <input type="text" id="contact-nom" name="nom" placeholder="Votre nom" required>
+
+          <label for="contact-email" class="visually-hidden">Adresse email</label>
+          <input type="email" id="contact-email" name="email" placeholder="Votre email" required>
         </div>
-        <input type="text" placeholder="Objet" required>
-        <textarea id="contact-message" placeholder="Votre message..." rows="6" required></textarea>
+
+        <label for="contact-objet" class="visually-hidden">Objet du message</label>
+        <input type="text" id="contact-objet" name="objet" placeholder="Objet" required>
+
+        <label for="contact-message" class="visually-hidden">Votre message</label>
+        <textarea id="contact-message" name="message" placeholder="Votre message..." rows="6" required></textarea>
+
         <button class="btn" type="submit">Envoyer le message</button>
       </form>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <p>&copy; Espace Trinité</p>
-      <nav>
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="confidentialite.html">Politique de confidentialité</a>
-      </nav>
-    </div>
-  </footer>
+  <!-- =====================================================
+  =               SECTION : FORMULAIRE ASSISTANT         =
+  ===================================================== -->
 
-  <section id="assistant-overlay">
+    <section id="assistant-overlay" aria-labelledby="assistant-title" role="dialog" aria-modal="true" hidden>
     <div id="assistant-box">
       <div id="assistant-modal">
-        <h3>Trouvez votre salle idéale</h3>
-        <div id="assistant-form">
+        <h3 id="assistant-title">Trouvez votre salle idéale</h3>
+        <form id="assistant-form" aria-describedby="assistant-desc">
+          <p id="assistant-desc" class="visually-hidden">Répondez aux questions pour que nous vous suggérions une salle adaptée.</p>
+
           <div class="form-row">
             <label for="eventType">Type d'événement</label>
-            <select id="eventType" required>
+            <select id="eventType" name="eventType" required>
               <option value="" disabled selected>Type d'événement</option>
-              <option value="reunion">Réunion / Atelier</option>
-              <option value="conference">Conférence / Présentation</option>
-              <option value="cocktail">Cocktail / Réception</option>
+              <option value="reunion">Réunion (configuration en U)</option>
+              <option value="conference">Conférence</option>
+              <option value="classe">Salle de classe</option>
+              <option value="autre">Autre</option>
             </select>
           </div>
+
           <div class="form-row">
             <label for="participants">Nombre de participants</label>
-            <select id="participants" required>
+            <select id="participants" name="participants" required>
               <option value="" disabled selected>Nombre de participants</option>
               <option value="10">0-10 personnes</option>
               <option value="20">10-20 personnes</option>
@@ -596,35 +705,56 @@
               <option value="65">60-65 personnes</option>
             </select>
           </div>
+
           <div class="form-row">
             <label for="duration">Durée</label>
-            <select id="duration" required>
+            <select id="duration" name="duration" required>
               <option value="" disabled selected>Durée</option>
               <option value="demi">Demi‑journée</option>
               <option value="journee">Journée</option>
               <option value="horaire">Horaire</option>
             </select>
           </div>
+
           <div class="form-row">
             <label for="dateStart">Date souhaitée (début)</label>
             <input type="date" id="dateStart" name="dateStart">
           </div>
+
           <div class="form-row">
             <label for="dateEnd">Date souhaitée (fin)</label>
             <input type="date" id="dateEnd" name="dateEnd">
           </div>
+
           <div class="form-checkbox">
-            <input type="checkbox" id="pmr" />
+            <input type="checkbox" id="pmr" name="pmr">
             <label for="pmr">Accessible PMR</label>
           </div>
-        </div>
-        <div id="assistant-result" style="display:none;"></div>
-        <div class="actions">
-          <button class="btn btn-secondary" id="assistant-cancel">Annuler</button>
-          <button class="btn btn-primary" id="assistant-submit">Voir la recommandation</button>
+
+          <div id="assistant-result" hidden></div>
+
+          <div class="actions">
+            <button class="btn btn-secondary" id="assistant-cancel" type="button">Annuler</button>
+            <button class="btn btn-primary" id="assistant-submit" type="submit">Voir la recommandation</button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
+
+  <!-- =====================================================
+  =                     FOOTER                           =
+  ===================================================== -->
+
+  <footer role="contentinfo">
+    <div class="container">
+      <p>&copy; Espace Trinité</p>
+      <nav aria-label="Liens de bas de page">
+        <a href="mentions-legales.html" rel="nofollow">Mentions légales</a>
+        <a href="confidentialite.html" rel="nofollow">Politique de confidentialité</a>
+      </nav>
+    </div>
+  </footer>
 
 </body>
 </html>

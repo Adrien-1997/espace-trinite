@@ -19,8 +19,7 @@ section {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  padding: 80px 0px;
-
+  padding: 60px 0px;
 }
 
 section.visible {
@@ -40,7 +39,6 @@ section h2 {
   background-color: black;
   color: white;
   text-decoration: none;
-  border-radius: 0; /* coins carrés */
   border: 3px solid black; /* encadrement noir */
   font-weight: 500;
   font-size: 1rem;
@@ -53,14 +51,12 @@ section h2 {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-
 /* ============ GRILLE ACCUEIL ============ */
 .hero-grid{
   display:grid;
   grid-template-columns:70px 1fr 260px;   /* A | B | C */
   gap:60px;
   align-items:center;
-  padding-bottom:70px;
 }
 
 /* ---------- colonne A : pastilles ---------- */
@@ -81,11 +77,12 @@ section h2 {
 /* ---------- colonne B : contenu ---------- */
 .hero-content{
   min-height: 80vh;
-  margin-top: 80px;
+  margin-top: 60px;
   display:flex;
   flex-direction:column;
   gap:30px;
 }
+
 .accueil-logo img{
   max-width:320px;
   width:100%;
@@ -114,7 +111,7 @@ section h2 {
 @media (max-width: 768px) {
 
   .hero-content{
-    margin-top: 40px;
+    margin-top: 0;
   }
 
   .hero-grid{
@@ -298,7 +295,6 @@ textarea:focus {
   font-size: 1rem;
   color: white;
   line-height: 1.6;
-  border-radius: 0;
   border: 3px solid white;
   display: none;
   transition: background 0.3s ease;
@@ -321,7 +317,7 @@ textarea:focus {
 
 .actions .btn {
   padding: 10px 20px;
-  border: 2px solid black;
+  border: 3px solid black;
   font-weight: 500;
   font-size: 1rem;
   text-decoration: none;
@@ -536,11 +532,9 @@ body.no-scroll {
 ================================ */
 .section-apropos {
   position: relative;
-  padding: 100px 20px;
   color: white;
   background: black;
   text-align: left;
-  border-top: 2px solid white;
 }
 
 .section-apropos .container {
@@ -621,11 +615,11 @@ body.no-scroll {
    INFOS & LIEU
 ================================ */
 .info-apropos {
+  padding-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 40px;
-  margin: 60px auto;
   width: 100%;
 }
 
@@ -699,9 +693,7 @@ body.no-scroll {
 ================================ */
 .section-salles {
   background: white;
-  padding: 100px 20px;
   text-align: left;
-  border-top: 2px solid black;
 }
 
 .section-salles h2 {
@@ -913,7 +905,7 @@ body.no-scroll {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 4px 0;
+  padding: 3px 0;
   font-size: 1.05rem;
   font-weight: 400;
   color: black;
@@ -1008,23 +1000,44 @@ body.no-scroll {
 }
 
 
-/* ===========================
-   TITRE & NAVIGATION
-=========================== */
-.gallery-section {
-  color: white;
-  width: 100%;
-  overflow: hidden;
-  background: black;
-  border-top: 2px solid white;
+/* ====================================================
+   GALERIE – PALETTE & VARIABLES
+==================================================== */
+:root{
+  /* couleurs salles */
+  --c-blanc : #ffffff;
+  --c-noir  : #000000;
+  --c-rouge : #b22222;  /* Pierre Goursat */
+  --c-bleu  : #005bbb;  /* Estienne d'Orves */
+  --c-jaune : #ffbc00;  /* Olivier Messiaen */
+  --c-vert  : #00a859;  /* La Bruyère */
 }
 
-.gallery-nav {
+/* ====================================================
+   SECTION, TITRE & CONTAINER
+==================================================== */
+.gallery-section{
+  background: var(--c-noir);
+  color: var(--c-blanc);
+  width: 100%;
+  overflow: hidden;
+  border-top: 3px solid var(--c-blanc);
+}
+
+.gallery-section h2{
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+/* ====================================================
+   NAVIGATION BOUTONS
+==================================================== */
+.gallery-nav{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 14px;
-  margin: 20px auto 40px;
+  margin-bottom: 40px;
 }
 
 .gallery-nav button {
@@ -1034,196 +1047,162 @@ body.no-scroll {
   font-size: 1rem;
   padding: 8px 16px;
   cursor: pointer;
-  border-radius: 0;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* BOUTON ACTIF : surchargé par JS */
+.gallery-nav .active {
+  color: black;
+}
 
-/* === ACCUEIL (neutre) === */
+/* ACCUEIL – BLANC */
 .gallery-nav .btn-blanc {
-  border: 3px solid white;
+  border-color: white;
   color: white;
 }
-.gallery-nav .btn-blanc:hover {
+.gallery-nav .btn-blanc:hover,
+.gallery-nav .btn-blanc.active {
   background: white;
   color: black;
 }
 
-/* === LA BRUYÈRE – VERT === */
-.gallery-nav .btn-vert {
-  border: 3px solid #00a859;
-  color: #00a859;
-}
-.gallery-nav .btn-vert:hover {
-  background: #00a859;
-  color: white;
-}
-
-/* === ESTIENNE D’ORVES – BLEU === */
-.gallery-nav .btn-bleu {
-  border: 3px solid #005bbb;
-  color: #005bbb;
-}
-.gallery-nav .btn-bleu:hover {
-  background: #005bbb;
-  color: white;
-}
-
-/* === PIERRE GOURSAT – ROUGE === */
+/* PIERRE GOURSAT – ROUGE */
 .gallery-nav .btn-rouge {
-  border: 3px solid #b22222;
+  border-color: #b22222;
   color: #b22222;
 }
-.gallery-nav .btn-rouge:hover {
+.gallery-nav .btn-rouge:hover,
+.gallery-nav .btn-rouge.active {
   background: #b22222;
   color: white;
 }
 
-/* === OLIVIER MESSIAEN – JAUNE === */
+/* ESTIENNE D’ORVES – BLEU */
+.gallery-nav .btn-bleu {
+  border-color: #005bbb;
+  color: #005bbb;
+}
+.gallery-nav .btn-bleu:hover,
+.gallery-nav .btn-bleu.active {
+  background: #005bbb;
+  color: white;
+}
+
+/* OLIVIER MESSIAEN – JAUNE */
 .gallery-nav .btn-jaune {
-  border: 3px solid #ffbc00;
+  border-color: #ffbc00;
   color: #ffbc00;
 }
-.gallery-nav .btn-jaune:hover {
+.gallery-nav .btn-jaune:hover,
+.gallery-nav .btn-jaune.active {
   background: #ffbc00;
+  color: black;
+}
+
+/* LA BRUYÈRE – VERT */
+.gallery-nav .btn-vert {
+  border-color: #00a859;
+  color: #00a859;
+}
+.gallery-nav .btn-vert:hover,
+.gallery-nav .btn-vert.active {
+  background: #00a859;
   color: white;
 }
 
 
-/* ===========================
-   SLIDES & CONTAINER
-=========================== */
-.gallery-scroll-container {
-  width: 100%;
+/* ====================================================
+   SLIDES
+==================================================== */
+.gallery-scroll-container{ width:100%; }
+
+.gallery-slide{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
 }
 
-.gallery-slide {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100%;
+.gallery-slide.active{ display:flex; }
+
+/* ====================================================
+   MOSAÏQUE
+==================================================== */
+.gallery-mosaic{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:15px;
+  padding:0 5vw;
 }
 
-.gallery-slide.active {
-  display: flex;
+.grid-item{
+  position:relative;
+  overflow:hidden;
+  border:3px solid var(--c-blanc);          /* valeur par défaut */
 }
 
-.gallery-slide#accueil {
-  margin-top: 0;
-  padding-top: 0;
+.grid-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .4s ease;
 }
 
-/* ===========================
-   MOSAÏQUE D’IMAGES
-=========================== */
-.gallery-mosaic {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 16px;
-  width: 100%;
-  max-width: 1200px;
-  box-sizing: border-box;
-}
+.grid-item:hover img{ transform:scale(1.05); }
 
-.grid-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 0;
-  aspect-ratio: 4 / 3;
-  border: 3px solid white;
-}
+.grid-item.wide { grid-column:span 2; }
+.grid-item.tall { grid-row:span 2;   }
+.grid-item.large{ grid-column:span 2; grid-row:span 2; }
 
-.grid-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
+/* --- Bordures colorées selon la salle (hérite du slide) --- */
+.gallery-slide.rouge .grid-item { border-color: var(--c-rouge); }
+.gallery-slide.bleu  .grid-item { border-color: var(--c-bleu);  }
+.gallery-slide.jaune .grid-item { border-color: var(--c-jaune); }
+.gallery-slide.vert  .grid-item { border-color: var(--c-vert);  }
 
-.grid-item:hover img {
-  transform: scale(1.03);
-  filter: brightness(0.85);
-}
-
-.grid-item.wide {
-  grid-column: span 2;
-}
-
-/* =============================
-   VARIANTES COLORÉES GALERIE
-============================= */
-
-/* Rouge */
-.gallery-slide.rouge .grid-item {
-  border: 3px solid #b22222;
-}
-
-/* Bleu */
-.gallery-slide.bleu .grid-item {
-  border: 3px solid #005bbb;
-}
-
-/* Jaune */
-.gallery-slide.jaune .grid-item {
-  border: 3px solid #ffbc00;
-}
-
-/* Vert */
-.gallery-slide.vert .grid-item {
-  border: 3px solid #00a859;
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-@media (max-width: 768px) {
-  .gallery-mosaic {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    padding: 0 4vw;
+/* ====================================================
+   RESPONSIVE ≤ 768 px
+==================================================== */
+@media (max-width:768px){
+  .gallery-nav button{
+    font-size:.9rem;
+    padding:6px 12px;
+  }
+  .gallery-mosaic{
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:12px;
+    padding:0 3vw;
   }
 }
 
-@media (max-width: 768px) {
-  .gallery-nav button {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
-
-  .gallery-mosaic {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 12px;
-    padding: 0 3vw;
-  }
+/* ====================================================
+   ZOOM VIEWER
+==================================================== */
+#zoom-viewer{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.9);
+  display:flex;align-items:center;justify-content:center;
+  z-index:9999;
+}
+#zoom-viewer img{
+  max-width:90%;max-height:90%;
 }
 
-/* ------------------------------
-   ZOOM IMAGE (facultatif)
------------------------------- */
-
-#zoom-viewer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+/* Flèches navigation */
+.zoom-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  font-size:3rem;color:var(--c-blanc);
+  cursor:pointer;user-select:none;
+  padding:0 18px;line-height:1;
+  transition:opacity .25s;
 }
+.zoom-arrow:hover{ opacity:.7; }
+.zoom-prev{ left:15px; }
+.zoom-next{ right:15px; }
 
-#zoom-viewer img {
-  max-width: 90%;
-  max-height: 90%;
-}
 
-.zoom-hidden {
-  display: none;
-}
 
 /* ===============================
    SECTION TARIFS
@@ -1232,7 +1211,6 @@ body.no-scroll {
   color: black;
   background: white;
   text-align: left;
-  border-top: 2px solid black;
 }
 
 .section-tarifs .intro {
@@ -1267,7 +1245,6 @@ body.no-scroll {
 ================================ */
 .tarif-card {
   background: white;
-  border-radius: 0;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   padding: 30px 24px;
   transition: all 0.3s ease;
@@ -1373,7 +1350,6 @@ body.no-scroll {
   padding: 60px 20px;
   background: black;
   color: white;
-  border-top: 2px solid white;
   text-align: left;
 }
 
@@ -1441,7 +1417,6 @@ body.no-scroll {
   width: 100%;
   max-width: 500px;
   max-height: 90%;
-  border-radius: 0;
   object-fit: cover;
   box-shadow: 0 6px 16px rgba(255, 255, 255, 0.06);
 }
@@ -1468,6 +1443,10 @@ body.no-scroll {
   .formule p {
     font-size: 1rem;
   }
+
+  .restauration-img img {
+    height:0;
+  }
 }
 
 /* ================================
@@ -1475,9 +1454,7 @@ body.no-scroll {
 ================================ */
 .section-contact {
   background: white;
-  padding: 100px 20px;
   text-align: left;
-  border-top: 2px solid black;
 }
 
 .section-contact .intro {
@@ -1523,7 +1500,6 @@ body.no-scroll {
 .contact-form input,
 .contact-form textarea {
   padding: 14px;
-  border-radius: 0;
   border: 3px solid black;
   background: white;
   color: black;
