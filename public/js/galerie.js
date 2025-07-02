@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ---------- LIENS « + de photos » ---------- */
-  const sectionIds = ["#accueil", "#goursat", "#orves", "#messiaen", "#labruyere"];
+  const sectionIds = ["#acc", "#goursat", "#orves", "#messiaen", "#labruyere"];
 
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     const href  = link.getAttribute("href");

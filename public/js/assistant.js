@@ -198,7 +198,6 @@ if (!toggleButtons.length || !overlay) {
         "Pourriez-vous me faire une proposition adaptée ?",
         "Merci d’avance."
       ];
-
       const messageTxt = lignes.filter(Boolean).join("\n");
 
       const contactSection = document.getElementById("contact");
@@ -208,9 +207,13 @@ if (!toggleButtons.length || !overlay) {
       if (subjectField && messageField) {
         subjectField.value = "Demande de devis";
         messageField.value = messageTxt;
-        contactSection.scrollIntoView({ behavior: "smooth" });
-        closeAssistant();
       }
-    }, { once: true }); // évite doublons
+
+      /* --- ferme la modale puis scroll vers #contact --- */
+      closeAssistant();                                  // 1) déverrouille la page
+      setTimeout(() => {                                 // 2) puis scroll en douceur
+        contactSection?.scrollIntoView({ behavior: "smooth" });
+      }, 50); // petit délai pour laisser le scroll être rétabli
+    }, { once: true });
   });
 });
