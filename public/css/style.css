@@ -81,11 +81,16 @@ section h2 {
 /* ---------- colonne B : contenu ---------- */
 .hero-content{
   min-height: 80vh;
+  margin-top: 80px;
   display:flex;
   flex-direction:column;
   gap:30px;
 }
-.accueil-logo img{max-width:320px;width:100%;height:auto;}
+.accueil-logo img{
+  max-width:320px;
+  width:100%;
+  height:auto;}
+
 .hero-content h2{
   font-size:2.5rem;
   font-weight:800;
@@ -107,6 +112,10 @@ section h2 {
    RESPONSIVE ≤ 768 px
 ======================= */
 @media (max-width: 768px) {
+
+  .hero-content{
+    margin-top: 40px;
+  }
 
   .hero-grid{
     grid-template-columns: 1fr;   /* texte + pastilles en colonne unique */
