@@ -98,14 +98,12 @@ nav {
   color: white !important;
   background: black;
   padding: 4px 8px;
-  border-radius: 0;
 }
 
 #site-header.scrolled .nav-links a.active-section {
   color: black !important;
   background: white;
   padding: 4px 8px;
-  border-radius: 0;
 }
 
 /* =========================================================
@@ -256,7 +254,6 @@ footer {
   text-align: center;
   padding: 30px 10px;
   font-size: 0.9rem;
-  border-top: 2px solid white;
 }
 
 footer nav {
