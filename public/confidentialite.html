@@ -10,42 +10,89 @@
   <script src="header.js"></script>
   <script src="script.js"></script>
   <style>
-
-    #site-header .container {
-        display: flex;
-        justify-content: flex-start; /* ← aligne tout à gauche */
-        align-items: center;
-        padding: 5px;
-    }
-
+    /* === SECTION confidentialite — fond inversé, structure épurée === */
     #confidentialite {
-        background: radial-gradient(ellipse at center, #007cf0 0%, #003973 100%);
-        color: white;
-        position: relative;
-        padding: 120px 20px;
-        min-height: 100vh;
-        overflow: hidden;
+      background: black;
+      color: white;
+      padding: 120px 40px;
+      min-height: 100vh;
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 24px;
     }
 
+    #confidentialite h1, 
+    #confidentialite h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+
+    #confidentialite p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      max-width: 800px;
+    }
+
+    #confidentialite a {
+      color: #ffcc00;
+      text-decoration: underline;
+    }
+
+    #confidentialite a:hover {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #confidentialite {
+        padding: 100px 20px;
+      }
+
+      #confidentialite h1 {
+        font-size: 2rem;
+      }
+
+      #confidentialite p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header id="site-header">
-    <a href="index.html" class="brand-link">   <!-- ← lien vers la Home -->
-      <div class="container">
-        <img src="img/logo-espace-trinite.png"
-            alt="Logo Espace Trinité"
-            class="logo-accueil">
-        <h3>Espace Trinité</h3>
-      </div>
-    </a>
+    <div class="container">
+      <a href="index.html" class="brand-link">   <!-- ← lien vers la Home -->
+        <img src="img/petit-logo.png" alt="Logo " class="logo-accueil">
+      </a>
+      <nav>
+        <div class="burger" aria-label="Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#apropos">À propos</a></li>
+          <li><a href="#salles">Salles</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#tarifs">Tarifs</a></li>
+          <li><a href="#restauration">Restauration</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <section id="confidentialite" class="confidentialite-section">
     <div class="container">
 
         <h1>🛡️ Politique de confidentialité</h1>
-        <p><strong>Dernière mise à jour :</strong> 24 juin 2025</p>
+        <p><strong>Dernière mise à jour :</strong>01 juillet 2025</p>
 
         <h3>1. Responsable du traitement</h3>
         <p>Espace Trinité<br>

@@ -4,23 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Espace Trinité</title>
-  <link rel="stylesheet" href="header.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <script src="header.js"></script>
-  <script src="script.js"></script>
-  <style>
-  </style>
+  <script src="js/header.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/assistant.js"></script>
+  <script src="js/galerie.js"></script>
 </head>
 <body>
   <header id="site-header">
     <div class="container">
       <a href="index.html" class="brand-link">   <!-- ← lien vers la Home -->
-        <img src="img/logo-espace-trinite.png"
-            alt="Logo Espace Trinité"
-            class="logo-accueil">
-        <h3>Espace Trinité</h3>
+        <img src="img/petit-logo.png" alt="Logo " class="logo-accueil">
       </a>
       <nav>
         <div class="burger" aria-label="Menu" aria-expanded="false">
@@ -36,65 +33,6 @@
           <li><a href="#tarifs">Tarifs</a></li>
           <li><a href="#restauration">Restauration</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><button id="assistant-toggle">Trouver ma salle 🧭</button>
-            <div id="assistant-overlay">
-              <div id="assistant-box">
-                <div id="assistant-modal">
-                  <h3>Trouvez votre salle idéale</h3>
-                  <div id="assistant-form">
-                    <div class="form-row">
-                      <label for="eventType">Type d'événement</label>
-                      <select id="eventType" required>
-                        <option value="" disabled selected>Type d'événement</option>
-                        <option value="reunion">Réunion / Atelier</option>
-                        <option value="conference">Conférence / Présentation</option>
-                        <option value="cocktail">Cocktail / Réception</option>
-                      </select>
-                    </div>
-                    <div class="form-row">
-                      <label for="participants">Nombre de participants</label>
-                      <select id="participants" required>
-                        <option value="" disabled selected>Nombre de participants</option>
-                        <option value="10">0-10 personnes</option>
-                        <option value="20">10-20 personnes</option>
-                        <option value="30">20-30 personnes</option>
-                        <option value="40">30-40 personnes</option>
-                        <option value="50">40-50 personnes</option>
-                        <option value="60">50-60 personnes</option>
-                        <option value="65">60-65 personnes</option>
-                      </select>
-                    </div>
-                    <div class="form-row">
-                      <label for="duration">Durée</label>
-                      <select id="duration" required>
-                        <option value="" disabled selected>Durée</option>
-                        <option value="demi">Demi‑journée</option>
-                        <option value="journee">Journée</option>
-                        <option value="soiree">Soirée</option>
-                      </select>
-                    </div>
-                    <div class="form-row">
-                      <label for="dateStart">Date souhaitée (début)</label>
-                      <input type="date" id="dateStart" name="dateStart">
-                    </div>
-                    <div class="form-row">
-                      <label for="dateEnd">Date souhaitée (fin)</label>
-                      <input type="date" id="dateEnd" name="dateEnd">
-                    </div>
-                    <div class="form-checkbox">
-                      <input type="checkbox" id="pmr" />
-                      <label for="pmr">Accessible PMR</label>
-                    </div>
-                  </div>
-                  <div id="assistant-result" style="display:none;"></div>
-                  <div class="actions">
-                    <button class="btn btn-secondary" id="assistant-cancel">Annuler</button>
-                    <button class="btn btn-primary" id="assistant-submit">Voir la recommandation</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
         </ul>
       </nav>
     </div>
@@ -102,21 +40,49 @@
 
   <section id="accueil" class="hero">
     <div class="hero-overlay">
-      <div class="container">
-        <h2>Votre espace de travail au cœur de Paris</h2>
-        <p>
-          Idéalement situé au cœur du 9<sup>e</sup> arrondissement de Paris, à deux pas de la Gare Saint-Lazare, d’Auber et d’Opéra, l’Espace Trinité vous accueille dans un cadre chaleureux et modulable.
-        </p>
+      <div class="container ">
 
-        <p>
-          Réunions privées ou professionnelles, séminaires, conférences, team buildings ou événements sur mesure : notre équipe met à votre disposition des salles équipées et un accompagnement personnalisé.
-        </p>
+        <div class="hero-grid">
+          <!-- Colonne A : pastilles -->
+          <div class="dot-column">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-blue"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
 
+          <!-- Colonne B : logo + texte -->
+          <div class="hero-content">
+            <div class="accueil-logo">
+              <img src="img/grand-logo.png" alt="Espace Trinité">
+            </div>
+            <h2>Vos salles de travail<br>à deux pas de Saint-Lazare</h2>
+            <p>
+              Idéalement situé au cœur du 9<sup>e</sup> arrondissement de Paris, à deux pas de la
+              Gare Saint-Lazare, d’Auber et d’Opéra, l’Espace Trinité vous accueille dans un cadre
+              chaleureux et modulable.
+            </p>
+            <p>
+              Réunions privées ou professionnelles, séminaires, conférences, team buildings ou événements
+              sur mesure : notre équipe met à votre disposition des salles équipées et un accompagnement
+              personnalisé.
+            </p>
+          </div>
+
+          <!-- Colonne C : cercle noir -->
+          <div class="hero-right">
+            <div class="hero-circle"></div>
+          </div>
+        </div>
+        <h2 class="titre">Configurations et capacités des salles</h2>
         <!-- Capacités des configurations de salle -->
         <div class="capacity-list">
+
+          
+
           <div class="capacity-item">
             <div class="capacity-header">
-              <img src="img/lunch.png" alt="Réunion" class="capacity-icon">
+              <img src="img/u-table.png" alt="Réunion" class="capacity-icon">
               <span class="capacity-type">Réunion</span>
             </div>
             <div class="capacity-badges">
@@ -125,16 +91,6 @@
             </div>
           </div>
 
-          <div class="capacity-item">
-            <div class="capacity-header">
-              <img src="img/u-table.png" alt="En U" class="capacity-icon">
-              <span class="capacity-type">En U</span>
-            </div>
-            <div class="capacity-badges">
-              <span class="badge">Salle la plus grande : 34 pers</span>
-              <span class="badge">Nombre de salles : 4</span>
-            </div>
-          </div>
 
           <div class="capacity-item">
             <div class="capacity-header">
@@ -158,16 +114,6 @@
             </div>
           </div>
 
-          <div class="capacity-item">
-            <div class="capacity-header">
-              <img src="img/table.png" alt="Classe" class="capacity-icon">
-              <span class="capacity-type">Classe</span>
-            </div>
-            <div class="capacity-badges">
-              <span class="badge">Salle la plus grande : 40 pers</span>
-              <span class="badge">Nombre de salles : 4</span>
-            </div>
-          </div>
           <div class="equipements">
             <div class="tag"><i class="bi bi-display"></i> Vidéoprojecteur sonorisé</div>
             <div class="tag"><i class="bi bi-mic"></i> Micro HF sur demande</div>
@@ -175,6 +121,7 @@
             <div class="tag"><i class="bi bi-easel"></i> Paperboard</div>
             <div class="tag"><i class="bi bi-snow"></i> Climatisation</div>
           </div>
+
         </div>
 
         <div class="devis">
@@ -182,10 +129,8 @@
             À partir de <strong>350&nbsp;€</strong><br>
             <span class="petit">/ demi-journée</span>
           </div>
-          <a href="#contact" class="btn-devis">Demander un devis</a>
-          <div class="gratuit">Devis gratuit</div>
-        </div>
-
+          <button class="assistant-toggle">Demander un devis</button>
+        <div class="gratuit">Devis gratuit</div>
       </div>
     </div>
   </section>
@@ -193,7 +138,8 @@
 
   <section id="apropos" class="section-apropos">
     <div class="container">
-      <h2>À propos</h2>
+
+      <h2>À PROPOS</h2>
 
       <div class="apropos-icons">
         <div class="icon-box">
@@ -227,7 +173,7 @@
       <div class="info-apropos">
         <div class="lieu">
           <h3>📍 Le lieu</h3>
-          <p><strong>Adresse :</strong><br>3 rue de la Trinité, Paris 9e</p>
+          <p><strong>🗺️ Adresse :</strong><br>3 rue de la Trinité, Paris 9e</p>
 
           <p class="label">🚌 Accès :</p>
           <ul class="acces-list">
@@ -256,44 +202,20 @@
 
   <section id="salles" class="section-salles">
     <div class="container">
-      <h2>Nos salles</h2>
+      <h2>NOS SALLES</h2>
       <p class="intro">Espaces lumineux et modulables de 35 à 80 m² pour vos réunions, séminaires, formations ou conférences.</p>
 
       <div class="grid-salles">
 
-        <!-- Salle La Bruyère -->
-        <div class="card-salle">
-          <img src="img/b1.JPG" alt="Salle La Bruyère">
-          <h3>Salle La Bruyère</h3>
-          <p>Une salle moderne et lumineuse, entièrement équipée et modulable pour accueillir jusqu’à 40 personnes.</p>
-          <p class="superficie">70 m² – Lumière du jour</p>
-          <div class="agencements">
-            <div class="agencement-item">
-              <img src="img/u-table.png" alt="U">
-              <span>28 personnes en U</span>
-            </div>
-            <div class="agencement-item">
-              <img src="img/conference.png" alt="Conférence">
-              <span>60 personnes en style conférence</span>
-            </div>
-            <div class="agencement-item">
-              <img src="img/table.png" alt="Table fermée">
-              <span>32 personnes en table fermée</span>
-            </div>
-          </div>
-          <div class="equipements">
-            <div class="tag"><i class="bi bi-display"></i> Vidéoprojecteur sonorisé</div>
-            <div class="tag"><i class="bi bi-mic"></i> Micro filaire et HF sur demande</div>
-            <div class="tag"><i class="bi bi-wifi"></i> Wifi internet fibre</div>
-            <div class="tag"><i class="bi bi-tv"></i> Écran de projection électrique</div>
-            <div class="tag"><i class="bi bi-easel"></i> Paperboard</div>
-            <div class="tag"><i class="bi bi-snow"></i> Climatisation</div>
-          </div>
-        </div>
-
         <!-- Salle Pierre Goursat -->
-        <div class="card-salle">
-          <img src="img/g1.JPG" alt="Salle Pierre Goursat">
+        <div class="card-salle card-rouge">
+          <img src="img/Salle Pierre Goursat 1.jpg" alt="Salle Pierre Goursat">
+
+          <!-- Ajout du lien sous l'image -->
+          <div class="voir-plus">
+            <a href="#goursat">+ de photos</a>
+          </div>
+
           <h3>Salle Pierre Goursat</h3>
           <p>Charme unique et lumière naturelle, pour des formats jusqu’à 25 personnes, adaptée pour travaux en petits groupes.</p>
           <p class="superficie">70 m² sur deux niveaux – Lumière du jour</p>
@@ -307,11 +229,11 @@
               <span>35 personnes en style conférence</span>
             </div>
             <div class="agencement-item">
-              <img src="img/lunch.png" alt="Déjeuner">
+              <img src="img/repas.png" alt="Déjeuner" class="tag-icon">
               <span>40 personnes en déjeuner assis</span>
             </div>
             <div class="agencement-item">
-              <img src="img/cocktail.png" alt="Cocktail">
+              <img src="img/cocktail.png" alt="Cocktail" class="tag-icon">
               <span>60 personnes dans un espace cocktail</span>
             </div>
           </div>
@@ -325,8 +247,14 @@
         </div>
 
         <!-- Salle Estienne d'Orves -->
-        <div class="card-salle">
-          <img src="img/eo1.JPG" alt="Salle Estienne d’Orves">
+        <div class="card-salle card-bleu">
+          <img src="img/Salle d'Estienne d'Orves 3.jpg" alt="Salle Estienne d’Orves">
+
+          <!-- Ajout du lien sous l'image -->
+          <div class="voir-plus">
+            <a href="#orves">+ de photos</a>
+          </div>
+
           <h3>Salle Estienne d’Orves</h3>
           <p>Une salle aux lignes classiques et à l’élégance discrète, parfaite pour des rencontres jusqu’à 20 personnes.</p>
           <p class="superficie">35 m² – Lumière du jour</p>
@@ -353,8 +281,14 @@
         </div>
 
         <!-- Salle Olivier Messiaen -->
-        <div class="card-salle">
-          <img src="img/m1.JPG" alt="Salle Olivier Messiaen">
+        <div class="card-salle card-jaune">
+          <img src="img/Salle Olivier Messiaen 3.jpg" alt="Salle Olivier Messiaen">
+
+          <!-- Ajout du lien sous l'image -->
+          <div class="voir-plus">
+            <a href="#messiaen">+ de photos</a>
+          </div>
+
           <h3>Salle Olivier Messiaen</h3>
           <p>Une salle à la lumière tamisée idéale pour accueillir vos conférences de 30 à 60 personnes. Son style sobre japonisant permettra d’accueillir vos invités pour un séminaire d’entreprise.</p>
           <p class="superficie">80 m² en sous-sol – Éclairages étudiés (non accessible PMR)</p>
@@ -383,27 +317,63 @@
           </div>
         </div>
 
+        <!-- Salle La Bruyère -->
+        <div class="card-salle card-vert">
+          <img src="img/Salle La Bruyère 1.jpg" alt="Salle La Bruyère">
+
+          <!-- Ajout du lien sous l'image -->
+          <div class="voir-plus">
+            <a href="#labruyere">+ de photos</a>
+          </div>
+
+          <h3>Salle La Bruyère</h3>
+          <p>Une salle moderne et lumineuse, entièrement équipée et modulable pour accueillir jusqu’à 40 personnes.</p>
+          <p class="superficie">70 m² – Lumière du jour</p>
+          <div class="agencements">
+            <div class="agencement-item">
+              <img src="img/u-table.png" alt="U">
+              <span>28 personnes en U</span>
+            </div>
+            <div class="agencement-item">
+              <img src="img/conference.png" alt="Conférence">
+              <span>60 personnes en style conférence</span>
+            </div>
+            <div class="agencement-item">
+              <img src="img/table.png" alt="Table fermée">
+              <span>32 personnes en table fermée</span>
+            </div>
+          </div>
+          <div class="equipements">
+            <div class="tag"><i class="bi bi-display"></i> Vidéoprojecteur sonorisé</div>
+            <div class="tag"><i class="bi bi-mic"></i> Micro filaire et HF sur demande</div>
+            <div class="tag"><i class="bi bi-wifi"></i> Wifi internet fibre</div>
+            <div class="tag"><i class="bi bi-tv"></i> Écran de projection électrique</div>
+            <div class="tag"><i class="bi bi-easel"></i> Paperboard</div>
+            <div class="tag"><i class="bi bi-snow"></i> Climatisation</div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <section id="galerie" class="gallery-section">
     <div class="container">
-      <h2 class="gallery-title">Galerie d'images</h2>
+      <h2>GALERIE D'IMAGES</h2>
 
       <!-- SLIDER ÉTIQUETTES -->
       <div class="gallery-nav">
-        <button>Accueil</button>
-        <button>La Bruyère</button>
-        <button>Estienne d'Orves</button>
-        <button>Pierre Goursat</button>
-        <button>Olivier Messiaen</button>
+        <button class="btn-blanc">Accueil</button>
+        <button class="btn-rouge">Pierre Goursat</button>
+        <button class="btn-bleu">Estienne d'Orves</button>
+        <button class="btn-jaune">Olivier Messiaen</button>
+        <button class="btn-vert">La Bruyère</button>
       </div>
 
       <!-- GALERIE HORIZONTALE -->
       <div class="gallery-scroll-container">
         <!-- ACCUEIL -->
-        <section class="gallery-slide" id="accueil">
+        <div class="gallery-slide" id="accueil">
           <div class="gallery-mosaic">
             <div class="grid-item"><img src="img/a1.JPG" alt="Accueil 1"></div>
             <div class="grid-item wide"><img src="img/a2.JPG" alt="Accueil 2"></div>
@@ -412,32 +382,10 @@
             <div class="grid-item"><img src="img/a5.JPG" alt="Accueil 5"></div>
             <div class="grid-item wide"><img src="img/a6.JPG" alt="Accueil 6"></div>
           </div>
-        </section>
-
-        <!-- LA BRUYÈRE -->
-        <section class="gallery-slide" id="labruyere">
-          <div class="gallery-mosaic">
-            <div class="grid-item wide"><img src="img/b1.JPG" alt="Bruyère 1"></div>
-            <div class="grid-item"><img src="img/b2.JPG" alt="Bruyère 2"></div>
-            <div class="grid-item"><img src="img/b3.JPG" alt="Bruyère 3"></div>
-            <div class="grid-item"><img src="img/b4.JPG" alt="Bruyère 4"></div>
-            <div class="grid-item"><img src="img/b5.JPG" alt="Bruyère 5"></div>
-            <div class="grid-item wide"><img src="img/b6.JPG" alt="Bruyère 6"></div>
-          </div>
-        </section>
-
-        <!-- ESTIENNE D'ORVES -->
-        <section class="gallery-slide" id="orves">
-          <div class="gallery-mosaic">
-            <div class="grid-item"><img src="img/eo1.JPG" alt="Orves 1"></div>
-            <div class="grid-item wide"><img src="img/eo2.JPG" alt="Orves 2"></div>
-            <div class="grid-item"><img src="img/eo3.JPG" alt="Orves 3"></div>
-            <div class="grid-item wide"><img src="img/eo4.JPG" alt="Orves 4"></div>
-          </div>
-        </section>
+        </div>
 
         <!-- PIERRE GOURSAT -->
-        <section class="gallery-slide" id="goursat">
+        <div class="gallery-slide rouge" id="goursat">
           <div class="gallery-mosaic">
             <div class="grid-item wide"><img src="img/g1.JPG" alt="Goursat 1"></div>
             <div class="grid-item"><img src="img/g2.JPG" alt="Goursat 2"></div>
@@ -446,98 +394,157 @@
             <div class="grid-item"><img src="img/g5.JPG" alt="Goursat 5"></div>
             <div class="grid-item wide"><img src="img/g6.JPG" alt="Goursat 6"></div>
           </div>
-        </section>
+        </div>
+
+        <!-- ESTIENNE D'ORVES -->
+        <div class="gallery-slide bleu" id="orves">
+          <div class="gallery-mosaic">
+            <div class="grid-item"><img src="img/eo1.JPG" alt="Orves 1"></div>
+            <div class="grid-item wide"><img src="img/eo2.JPG" alt="Orves 2"></div>
+            <div class="grid-item"><img src="img/eo3.JPG" alt="Orves 3"></div>
+            <div class="grid-item wide"><img src="img/eo4.JPG" alt="Orves 4"></div>
+          </div>
+        </div>
 
         <!-- OLIVIER MESSIAEN -->
-        <section class="gallery-slide" id="messiaen">
+        <div class="gallery-slide jaune" id="messiaen">
           <div class="gallery-mosaic">
             <div class="grid-item"><img src="img/m1.JPG" alt="Messiaen 1"></div>
             <div class="grid-item wide"><img src="img/m2.JPG" alt="Messiaen 2"></div>
             <div class="grid-item"><img src="img/m3.JPG" alt="Messiaen 3"></div>
             <div class="grid-item wide"><img src="img/m5.JPG" alt="Messiaen 5"></div>
           </div>
-        </section>
+        </div>
+
+        <!-- LA BRUYÈRE -->
+        <div class="gallery-slide vert" id="labruyere">
+          <div class="gallery-mosaic">
+            <div class="grid-item wide"><img src="img/b1.JPG" alt="Bruyère 1"></div>
+            <div class="grid-item"><img src="img/b2.JPG" alt="Bruyère 2"></div>
+            <div class="grid-item"><img src="img/b3.JPG" alt="Bruyère 3"></div>
+            <div class="grid-item"><img src="img/b4.JPG" alt="Bruyère 4"></div>
+            <div class="grid-item"><img src="img/b5.JPG" alt="Bruyère 5"></div>
+            <div class="grid-item wide"><img src="img/b6.JPG" alt="Bruyère 6"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
-
 
   <section id="tarifs" class="section-tarifs">
     <div class="container">
-      <h2>Tarifs</h2>
-      <p class="intro">Tarifs HT applicables à partir de septembre 2025. Un supplément s'applique au-delà de 30 personnes.</p>
+      <h2>TARIFS</h2>
+      <p class="intro">Tarifs HT applicables à partir du 1er septembre 2025.</p>
 
       <div class="tarif-grid">
-        <div class="tarif-card">
-          <h3>Salle La Bruyère</h3>
-          <p><strong>Journée :</strong> 660 €</p>
-          <p><strong>Demi-journée :</strong> 485 €</p>
-          <p><strong>Tarif horaire :</strong> 164 €</p>
-        </div>
 
-        <div class="tarif-card">
+        <div class="tarif-card rouge">
           <h3>Salle Pierre Goursat</h3>
-          <p><strong>Journée :</strong> 510 € <span class="supplement">+30 pers : 555 €</span></p>
-          <p><strong>Demi-journée :</strong> 365 € <span class="supplement">400 €</span></p>
-          <p><strong>Tarif horaire :</strong> 115 € <span class="supplement">127 €</span></p>
-          <p><strong>Forfait soirée :</strong> 448 €</p>
-        </div>
-
-        <div class="tarif-card">
-          <h3>Salle Estienne d’Orves</h3>
-          <p><strong>Journée :</strong> 490 €</p>
-          <p><strong>Demi-journée :</strong> 340 €</p>
-          <p><strong>Tarif horaire :</strong> 111 €</p>
-        </div>
-
-        <div class="tarif-card">
-          <h3>Salle Olivier Messiaen</h3>
-          <p><strong>Journée :</strong> 620 €</p>
+          <p><strong>Journée :</strong> 640 €</p>
           <p><strong>Demi-journée :</strong> 460 €</p>
-          <p><strong>Tarif horaire :</strong> 157 €</p>
+          <p><strong>Tarif horaire :</strong> 150 €</p>
+        </div>
+
+        <div class="tarif-card bleu">
+          <h3>Salle Etienne d'Orves</h3>
+          <p><strong>Journée :</strong> 580 €</p>
+          <p><strong>Demi-journée :</strong> 405 €</p>
+          <p><strong>Tarif horaire :</strong> 140 €</p>
+        </div>
+
+        <div class="tarif-card jaune">
+          <h3>Salle Olivier Messiaen</h3>
+          <p><strong>Journée :</strong> 740 €</p>
+          <p><strong>Demi-journée :</strong> 540 €</p>
+          <p><strong>Tarif horaire :</strong> 190 €</p>
+        </div>
+
+        <div class="tarif-card vert">
+          <h3>Salle La Bruyère</h3>
+          <p><strong>Journée :</strong> 800 €</p>
+          <p><strong>Demi-journée :</strong> 580 €</p>
+          <p><strong>Tarif horaire :</strong> 200 €</p>
+        </div>
+
+      </div>
+
+      <div class="tarif-grid" style="margin-top: 40px;">
+        <div class="tarif-card" style="grid-column: span 2;">
+          <h3>Forfaits Assemblées Générales</h3>
+          <p><strong>1 à 10 personnes :</strong> 350 €</p>
+          <p><strong>11 à 20 personnes :</strong> 400 €</p>
+          <p><strong>21 à 30 personnes :</strong> 450 €</p>
+          <p><strong>31 à 50 personnes :</strong> 500 €</p>
         </div>
       </div>
 
-      <a href="#contact" class="btn">Demander un devis</a>
+      <!-- Second bouton (section TARIFS) -->
+      <div class="btn-wrapper">
+        <button class="btn assistant-toggle">Demander un devis</button>
+      </div>
+
     </div>
   </section>
+
 
   <section id="restauration" class="section-restauration">
     <div class="container">
-      <h2>Restauration</h2>
+      <h2>RESTAURATION</h2>
 
       <div class="restauration-content">
+        <!-- Bloc image -->
+        <div class="restauration-img">
+          <img src="img/restauration.jpg" alt="Restauration">
+        </div>
         <!-- Bloc texte -->
         <div class="formule">
-          <p><strong>Pause accueil</strong> <span>2,90 €</span></p>
-          <p>Thé, café, croque cafés</p>
-          <p><strong>Pause goûter</strong> <span>4,50 €</span></p>
-          <p>Thé, café, jus de fruits, biscuits</p>
-          <p><strong>Pause complète</strong> <span>6,80 €</span></p>
+          <p><strong>Pause accueil</strong> <span>3,50 €</span></p>
+          <p>Thé, café, mini gâteaux</p>
+
+          <p><strong>Pause viennoiserie</strong> <span>6,00 €</span></p>
+          <p>Thé, café, mini viennoiseries</p>
+
+          <p><strong>Pause complète</strong> <span>7,50 €</span></p>
           <p>Thé, café, jus de fruit, viennoiseries</p>
-          <p><strong>Pause viennoiseries</strong> <span>5,00 €</span></p>
-          <p>Thé, café, viennoiseries</p>
-          <p><strong>Pause thé - café</strong> <span>2,40 €</span></p>
-          <p>Thé, café</p>
-          <p><strong>Pause café</strong> <span>2,00 €</span></p>
+
+          <p><strong>Pause café</strong> <span>2,70 €</span></p>
           <p>Café</p>
-          <p><strong>Pause rafraîchissante</strong> <span>3,50 €</span></p>
-          <p>Thé, café, jus de fruit, soda</p>
-          <p><strong>Coffrets repas, buffets et déjeuners assis</strong> <span> - Sur devis</span></p>
+
+          <p><strong>Pause thé - café</strong> <span>3,10 €</span></p>
+          <p>Thé, café</p>
+
+          <p><strong>Pause rafraîchissante</strong> <span>4,50 €</span></p>
+          <p>Thé, café, soft</p>
+
+          <p><strong>Eau minérale (bouteille 50cl)</strong> <span>1,70 €</span></p>
+          <p>Individuelle pour la journée</p>
+
+          <p><strong>Eau minérale (grande bouteille)</strong> <span>2,50 €</span></p>
+
+          <p><strong>Supplément corbeille de fruits</strong> <span>3,50 €</span></p>
+          <p>Par personne</p>
+
+          <br>
+
+          <p><strong>Coffret Medium</strong> <span>26,00 €</span></p>
+          <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
+
+          <p><strong>Coffret Premium</strong> <span>29,00 €</span></p>
+          <p>Entrée, plat, fromage, dessert avec eau plate et pétillante</p>
+
+          <br>
+
+          <p><strong>Buffets et cocktails</strong> <span>Sur devis</span></p>
         </div>
 
-        <!-- Bloc image (à côté) -->
-        <div class="restauration-img">
-          <img src="img/restauration.png" alt="Restauration">
-        </div>
       </div>
     </div>
   </section>
 
+
   <section id="contact" class="section-contact">
     <div class="container">
-      <h2>Contact</h2>
+      <h2>CONTACT</h2>
       <p class="intro">Une question, une demande particulière ? Écrivez-nous, nous vous répondrons rapidement.</p>
       
       <form class="contact-form">
@@ -562,6 +569,62 @@
     </div>
   </footer>
 
+  <section id="assistant-overlay">
+    <div id="assistant-box">
+      <div id="assistant-modal">
+        <h3>Trouvez votre salle idéale</h3>
+        <div id="assistant-form">
+          <div class="form-row">
+            <label for="eventType">Type d'événement</label>
+            <select id="eventType" required>
+              <option value="" disabled selected>Type d'événement</option>
+              <option value="reunion">Réunion / Atelier</option>
+              <option value="conference">Conférence / Présentation</option>
+              <option value="cocktail">Cocktail / Réception</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="participants">Nombre de participants</label>
+            <select id="participants" required>
+              <option value="" disabled selected>Nombre de participants</option>
+              <option value="10">0-10 personnes</option>
+              <option value="20">10-20 personnes</option>
+              <option value="30">20-30 personnes</option>
+              <option value="40">30-40 personnes</option>
+              <option value="50">40-50 personnes</option>
+              <option value="60">50-60 personnes</option>
+              <option value="65">60-65 personnes</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="duration">Durée</label>
+            <select id="duration" required>
+              <option value="" disabled selected>Durée</option>
+              <option value="demi">Demi‑journée</option>
+              <option value="journee">Journée</option>
+              <option value="horaire">Horaire</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="dateStart">Date souhaitée (début)</label>
+            <input type="date" id="dateStart" name="dateStart">
+          </div>
+          <div class="form-row">
+            <label for="dateEnd">Date souhaitée (fin)</label>
+            <input type="date" id="dateEnd" name="dateEnd">
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="pmr" />
+            <label for="pmr">Accessible PMR</label>
+          </div>
+        </div>
+        <div id="assistant-result" style="display:none;"></div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="assistant-cancel">Annuler</button>
+          <button class="btn btn-primary" id="assistant-submit">Voir la recommandation</button>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
