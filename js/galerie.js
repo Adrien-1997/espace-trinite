@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
      2. Accès direct via #hash  (ex. https://.../#goursat)
   ------------------------------------------------------------------ */
   const idToIndex = {
-    "#accueil": 0,
+    "#accueil-": 0,
     "#goursat": 1,
     "#orves":   2,
     "#messiaen":3,

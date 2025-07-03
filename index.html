@@ -37,6 +37,8 @@
   <script src="js/script.js" defer></script>
   <script src="js/assistant.js" defer></script>
   <script src="js/galerie.js" defer></script>
+  <script src="js/mail.js" defer></script>
+
 </head>
 
 <body>
@@ -60,13 +62,13 @@
         </div>
 
         <ul class="nav-links">
-          <li><a href="index.html#accueil" title="Retour à l'accueil">Accueil</a></li>
-          <li><a href="index.html#apropos" title="En savoir plus sur Espace Trinité">À propos</a></li>
-          <li><a href="index.html#salles" title="Nos salles à Paris 9">Salles</a></li>
-          <li><a href="index.html#galerie" title="Photos des salles">Galerie</a></li>
-          <li><a href="index.html#tarifs" title="Nos tarifs de location">Tarifs</a></li>
-          <li><a href="index.html#restauration" title="Services de restauration proposés">Restauration</a></li>
-          <li><a href="index.html#contact" title="Contactez-nous">Contact</a></li>
+          <li><a href="#accueil" title="Retour à l'accueil">Accueil</a></li>
+          <li><a href="#apropos" title="En savoir plus sur Espace Trinité">À propos</a></li>
+          <li><a href="#salles" title="Nos salles à Paris 9">Salles</a></li>
+          <li><a href="#galerie" title="Photos des salles">Galerie</a></li>
+          <li><a href="#tarifs" title="Nos tarifs de location">Tarifs</a></li>
+          <li><a href="#restauration" title="Services de restauration proposés">Restauration</a></li>
+          <li><a href="#contact" title="Contactez-nous">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -640,63 +642,76 @@
   =               SECTION : FORMULAIRE ASSISTANT         =
   ===================================================== -->
 
-<section id="assistant-overlay">
+  <section id="assistant-overlay" aria-label="Assistant de choix de salle">
     <div id="assistant-box">
-      <div id="assistant-modal">
-        <h3>Trouvez votre salle idéale</h3>
-        <div id="assistant-form">
-          <div class="form-row">
-            <label for="eventType">Type d'événement</label>
-            <select id="eventType" required>
-              <option value="" disabled selected>Type d'événement</option>
-              <option value="reunion">Réunion (configuration en U)</option>
-              <option value="conference">Conférence</option>
-              <option value="classe">Salle de classe</option>
-              <option value="autre">Autre</option> <!-- 👈 Ajout -->
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="participants">Nombre de participants</label>
-            <select id="participants" required>
-              <option value="" disabled selected>Nombre de participants</option>
-              <option value="10">0-10 personnes</option>
-              <option value="20">10-20 personnes</option>
-              <option value="30">20-30 personnes</option>
-              <option value="40">30-40 personnes</option>
-              <option value="50">40-50 personnes</option>
-              <option value="60">50-60 personnes</option>
-              <option value="65">60-65 personnes</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="duration">Durée</label>
-            <select id="duration" required>
-              <option value="" disabled selected>Durée</option>
-              <option value="demi">Demi‑journée</option>
-              <option value="journee">Journée</option>
-              <option value="horaire">Horaire</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="dateStart">Date souhaitée (début)</label>
-            <input type="date" id="dateStart" name="dateStart">
-          </div>
-          <div class="form-row">
-            <label for="dateEnd">Date souhaitée (fin)</label>
-            <input type="date" id="dateEnd" name="dateEnd">
-          </div>
-          <div class="form-checkbox">
-            <input type="checkbox" id="pmr" />
-            <label for="pmr">Accessible PMR</label>
-          </div>
-        </div>
-        <div id="assistant-result" style="display:none;"></div>
+      <div id="assistant-modal" role="dialog" aria-modal="true" aria-labelledby="assistant-title">
+        <h3 id="assistant-title">Trouvez votre salle idéale</h3>
+        <form id="assistant-form">
+          <fieldset>
+            <legend class="visually-hidden">Formulaire de sélection de salle</legend>
+
+            <div class="form-row">
+              <label for="eventType">Type d'événement</label>
+              <select id="eventType" name="eventType" required>
+                <option value="" disabled selected>Type d'événement</option>
+                <option value="reunion">Réunion (configuration en U)</option>
+                <option value="conference">Conférence</option>
+                <option value="classe">Salle de classe</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="participants">Nombre de participants</label>
+              <select id="participants" name="participants" required>
+                <option value="" disabled selected>Nombre de participants</option>
+                <option value="10">0-10 personnes</option>
+                <option value="20">10-20 personnes</option>
+                <option value="30">20-30 personnes</option>
+                <option value="40">30-40 personnes</option>
+                <option value="50">40-50 personnes</option>
+                <option value="60">50-60 personnes</option>
+                <option value="65">60-65 personnes</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="duration">Durée</label>
+              <select id="duration" name="duration" required>
+                <option value="" disabled selected>Durée</option>
+                <option value="demi">Demi-journée</option>
+                <option value="journee">Journée</option>
+                <option value="horaire">Horaire</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="dateStart">Date souhaitée (début)</label>
+              <input type="date" id="dateStart" name="dateStart" aria-required="false">
+            </div>
+
+            <div class="form-row">
+              <label for="dateEnd">Date souhaitée (fin)</label>
+              <input type="date" id="dateEnd" name="dateEnd" aria-required="false">
+            </div>
+
+            <div class="form-checkbox">
+              <input type="checkbox" id="pmr" name="pmr">
+              <label for="pmr">Accessible PMR</label>
+            </div>
+          </fieldset>
+        </form>
+
+        <div id="assistant-result" style="display:none;" aria-live="polite"></div>
+
         <div class="actions">
-          <button class="btn btn-secondary" id="assistant-cancel">Annuler</button>
-          <button class="btn btn-primary" id="assistant-submit">Voir la recommandation</button>
+          <button class="btn btn-secondary" id="assistant-cancel" title="Fermer l’assistant">Annuler</button>
+          <button class="btn btn-primary" id="assistant-submit" title="Afficher la salle recommandée">Voir la recommandation</button>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
 
   <!-- =====================================================
   =                     FOOTER                           =
