@@ -8,6 +8,7 @@ body {
   line-height: 1.6;
 }
 
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -143,242 +144,61 @@ section h2 {
   }
 }
 
-
 /* ===========================================================
-   FORMULAIRE ASSISTANT
+  BANDEAU DE PHOTOS
    =========================================================== */
 
-/* === Overlay === */
-#assistant-overlay {
-  position: fixed;
-  inset: 0;
-  display: none; /* sera flex via JS */
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 9999;
-}
-
-#assistant-overlay {
-  display: none;         /* caché par défaut */
-  position: fixed;
-  inset: 0;
-  /* …fond sombre, etc. … */
-}
-
-/* === Modal === */
-#assistant-modal {
-  background: white;
-  border: 3px solid black;
-  padding: 40px 30px;
-  max-width: 480px;
-  width: 90%;
-  max-height: calc(100vh - 160px);
-  overflow-y: auto;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  font-family: 'Helvetica', sans-serif;
-}
-
-.assistant-toggle {
-  background: black;
-  color: white;
-  border: 2px solid black;
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-family: 'Helvetica', sans-serif;
-  transition: all 0.2s ease;
-}
-
-.assistant-toggle:hover {
-  background: white;
-  color: black;
-}
-
-/* === Wrapper qui centre réellement le modal === */
-#assistant-box{
-  /* prend toute la surface de l’overlay */
-  width:100%;
-  height:100%;
-
-  /* centre #assistant-modal */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-
-/* === Titre === */
-#assistant-modal h3 {
-  font-family: 'Martian Mono', monospace;
-  font-weight: 700;
-  font-size: 1.6rem;
-  margin: 0 0 20px;
-  color: black;
-}
-
-/* === Champs du formulaire === */
-label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 6px;
-  color: black;
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 10px 12px;
-  font-size: 1rem;
-  border: 3px solid black;
-  border-radius: 0;
-  background: white;
-  color: black;
-  font-family: 'Helvetica', sans-serif;
-  transition: border-color 0.3s ease;
-  box-sizing: border-box;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: black;
-  box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
-}
-
-/* === Ligne de champ === */
-.form-row {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 16px; /* 👈 ajoute de l'espace AVANT chaque bloc */
-}
-
-.form-row:not(:first-child) {
-  margin-top: 16px;
-}
-
-/* === Checkbox PMR === */
-.form-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.photo-band {
+  background: #fff;
+  padding: 0;
   margin-top: 20px;
-}
-.form-checkbox input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: black;
-}
-.form-checkbox label {
-  margin: 0;
-  font-weight: 400;
-  color: black;
-}
-
-/* === Fond coloré par salle === */
-.result-bruyere  { background: #00a859; }   /* vert */
-.result-orves    { background: #005bbb; }   /* bleu */
-.result-messiaen { background: #ffbc00; color: black; } /* jaune */
-.result-goursat  { background: #b22222; }   /* rouge */
-
-/* === Bloc recommendation de base === */
-#assistant-result {
-  padding: 16px 20px;
-  font-size: 1rem;
-  color: white;
-  line-height: 1.6;
-  border: 3px solid white;
-  display: none;
-  transition: background 0.3s ease;
-}
-/* === Résultat sans correspondance === */
-.result-empty {
-  background: black;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-/* === Boutons === */
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.actions .btn {
-  padding: 10px 20px;
-  border: 3px solid black;
-  font-weight: 500;
-  font-size: 1rem;
-  text-decoration: none;
-  background: white;
-  color: black;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.actions .btn:hover {
-  background: black;
-  color: white;
-}
-
-
-/* -----------------------------------------------------------
-   Version mobile
-   -----------------------------------------------------------*/
-   
-@media (max-width: 768px) {
-
-  /* Overlay plein écran */
-  #assistant-overlay {
-    display: flex;
-    flex-direction: column;   /* empile les éléments verticalement */
-    align-items: center;      /* centre horizontalement */
-    justify-content: flex-start;
-    padding-top: 90px;        /* espace sous le haut de l’écran */
-  }
-
-
-  /* Fenêtre modale */
-  #assistant-modal {
-    position: relative;       /* se place dans le flux du flex-container */
-    width: 90%;
-    max-width: 90%;
-    margin: 0 auto;           /* centre horizontalement */
-    padding: 24px 20px;
-    top: 0;                   /* plus de translate */
-    left: 0;
-    transform: none;
-    box-sizing: border-box;
-  }
-
-  /* Titre dans la modale */
-  #assistant-modal h3 {
-    font-size: 1.4rem;
-  }
-}
-
-/* -----------------------------------------------------------
-   Blocage du scroll de fond
-   -----------------------------------------------------------*/
-/* bloque tout défilement page + inertie mobile */
-html.no-scroll,
-body.no-scroll {
-  position: fixed;       /* fige la page */
-  width: 100%;
-  height: 100%;
+  margin-bottom: 40px;
   overflow: hidden;
+  overflow-x: hidden;
+
 }
+
+.photo-band-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.photo-item {
+  flex: 1;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  min-height: 200px;
+  transition: transform 0.3s ease;
+}
+
+/* ---- MOBILE BREAKPOINT ---- */
+@media (max-width: 768px) {
+  .photo-band-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .photo-item {
+    flex: 0 0 80%;
+    margin-right: 12px;
+    scroll-snap-align: center;
+    border-radius: 8px;
+  }
+}
+
+
+/* ---- TÉLÉPHONE TRÈS ÉTROIT ---- */
+@media (max-width: 480px) {
+  .photo-item {
+    flex: 0 0 90%;
+  }
+}
+
 
 /* ===========================================================
    CAPACITÉS — Cartes harmonisées avec .tarif-card
@@ -597,17 +417,28 @@ body.no-scroll {
 ================================ */
 @media (max-width: 768px) {
   .apropos-icons {
-    gap: 30px 30px;
+    justify-content: space-around;
+    gap: 30px 20px;
   }
 
   .apropos-icons .icon-box {
-    width: 45%;
+    width: 45%; /* 2 colonnes */
+  }
+
+  .apropos-icons .icon-box i {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .apropos-icons .icon-box p {
+    font-size: 0.9rem;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .apropos-icons .icon-box {
-    width: 100%;
+    width: 100%; /* 1 par ligne sur petit mobile */
   }
 }
 
@@ -1537,6 +1368,242 @@ body.no-scroll {
 ================================ */
 .contact-form button {
   align-self: center;
+}
+
+/* ===========================================================
+   FORMULAIRE ASSISTANT
+   =========================================================== */
+
+/* === Overlay === */
+#assistant-overlay {
+  position: fixed;
+  inset: 0;
+  display: none; /* sera flex via JS */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+
+#assistant-overlay {
+  display: none;         /* caché par défaut */
+  position: fixed;
+  inset: 0;
+  /* …fond sombre, etc. … */
+}
+
+/* === Modal === */
+#assistant-modal {
+  background: white;
+  border: 3px solid black;
+  padding: 40px 30px;
+  max-width: 480px;
+  width: 90%;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.assistant-toggle {
+  background: black;
+  color: white;
+  border: 2px solid black;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Helvetica', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.assistant-toggle:hover {
+  background: white;
+  color: black;
+}
+
+/* === Wrapper qui centre réellement le modal === */
+#assistant-box{
+  /* prend toute la surface de l’overlay */
+  width:100%;
+  height:100%;
+
+  /* centre #assistant-modal */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* === Titre === */
+#assistant-modal h3 {
+  font-family: 'Martian Mono', monospace;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin: 0 0 20px;
+  color: black;
+}
+
+/* === Champs du formulaire === */
+label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: black;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 3px solid black;
+  border-radius: 0;
+  background: white;
+  color: black;
+  font-family: 'Helvetica', sans-serif;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: black;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+}
+
+/* === Ligne de champ === */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px; /* 👈 ajoute de l'espace AVANT chaque bloc */
+}
+
+.form-row:not(:first-child) {
+  margin-top: 16px;
+}
+
+/* === Checkbox PMR === */
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.form-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: black;
+}
+.form-checkbox label {
+  margin: 0;
+  font-weight: 400;
+  color: black;
+}
+
+/* === Fond coloré par salle === */
+.result-bruyere  { background: #00a859; }   /* vert */
+.result-orves    { background: #005bbb; }   /* bleu */
+.result-messiaen { background: #ffbc00; color: black; } /* jaune */
+.result-goursat  { background: #b22222; }   /* rouge */
+
+/* === Bloc recommendation de base === */
+#assistant-result {
+  padding: 16px 20px;
+  font-size: 1rem;
+  color: white;
+  line-height: 1.6;
+  border: 3px solid white;
+  display: none;
+  transition: background 0.3s ease;
+}
+/* === Résultat sans correspondance === */
+.result-empty {
+  background: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* === Boutons === */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.actions .btn {
+  padding: 10px 20px;
+  border: 3px solid black;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.actions .btn:hover {
+  background: black;
+  color: white;
+}
+
+
+/* -----------------------------------------------------------
+   Version mobile
+   -----------------------------------------------------------*/
+   
+@media (max-width: 768px) {
+
+  /* Overlay plein écran */
+  #assistant-overlay {
+    display: flex;
+    flex-direction: column;   /* empile les éléments verticalement */
+    align-items: center;      /* centre horizontalement */
+    justify-content: flex-start;
+    padding-top: 90px;        /* espace sous le haut de l’écran */
+  }
+
+
+  /* Fenêtre modale */
+  #assistant-modal {
+    position: relative;       /* se place dans le flux du flex-container */
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;           /* centre horizontalement */
+    padding: 24px 20px;
+    top: 0;                   /* plus de translate */
+    left: 0;
+    transform: none;
+    box-sizing: border-box;
+  }
+
+  /* Titre dans la modale */
+  #assistant-modal h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/* -----------------------------------------------------------
+   Blocage du scroll de fond
+   -----------------------------------------------------------*/
+/* bloque tout défilement page + inertie mobile */
+html.no-scroll,
+body.no-scroll {
+  position: fixed;       /* fige la page */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* ================================
