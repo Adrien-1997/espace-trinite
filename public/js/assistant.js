@@ -104,80 +104,95 @@ document.addEventListener("DOMContentLoaded", () => {
     closeAssistant();
   });
 
+  /* =========  Gestionnaire principal ========= */
   submitBtn.addEventListener("click", () => {
+    /* ----- Reset bloc résultat ----- */
     resultBlock.style.display = "none";
-    resultBlock.className = "";
+    resultBlock.className     = "";
 
-    const type        = eventType.value;
-    const nb          = parseInt(participants.value, 10) || 0;
-    const wantPMR     = pmrCheck.checked;
-    const dateStart   = document.getElementById("dateStart")?.value;
-    const dateEnd     = document.getElementById("dateEnd")?.value;
+    /* ----- Lecture des champs ----- */
+    const type      = eventType.value;
+    const nb        = participants.valueAsNumber || 0;
+    const wantPMR   = pmrCheck.checked;
+    const durValue  = duration.value;                     // "horaire" | "demi" | "journee" | ""
+    const dateStart = document.getElementById("dateStart")?.value;
+    const dateEnd   = document.getElementById("dateEnd")?.value;
 
-    /* ---------- Filtrage des salles ---------- */
-    const matches = rooms.filter(r =>
-      r.eventTypes.some(e => e.type === type) &&
-      nb >= r.min && nb <= r.max &&
-      (!wantPMR || r.pmr)
-    );
-
-    if (!matches.length) {
-      resultBlock.className = "result-empty";
-      resultBlock.innerHTML =
-        "Aucune salle ne correspond exactement à votre besoin.<br>Contactez-nous pour une solution sur mesure.";
+    if (!type || Number.isNaN(nb) || nb < 1) {
+      resultBlock.className   = "result-empty";
+      resultBlock.innerHTML   = "Sélectionnez un type d’événement et indiquez un nombre de participants.";
       resultBlock.style.display = "block";
       return;
     }
 
-    /* ---------- Calcul du prix à comparer ---------- */
-    const durValue  = duration.value;
-    const labelMap  = { demi: "demi-journée", journee: "journée", horaire: "horaire" };
-    const priceKey  =
-      durValue === "horaire" ? "heure" :
-      (durValue === "demi" || durValue === "journee") ? durValue :
-      null;                            // null → pas de durée précise
+    /* ----- Filtrage des salles ----- */
+    const matches = rooms.filter(room => {
+      const spec = room.eventTypes.find(e => e.type === type);
+      if (!spec) return false;                             // le type n'est pas proposé
 
-    /* ---------- Tri : moins cher d'abord ---------- */
+      const minCap = room.min ?? 0;                        // seuil plancher général
+      const maxCap = spec.capacity;                       // capacité MAX pour ce type
+      const okCap  = nb >= minCap && nb <= maxCap;
+      const okPMR  = !wantPMR || room.pmr;
+
+      return okCap && okPMR;
+    });
+
+    if (!matches.length) {
+      resultBlock.className   = "result-empty";
+      resultBlock.innerHTML   = "Aucune salle ne correspond exactement à votre besoin.<br>Contactez-nous pour une solution sur mesure.";
+      resultBlock.style.display = "block";
+      return;
+    }
+
+    /* ----- Détermination de la clé tarifaire ----- */
+    const priceKey = durValue === "horaire"
+      ? "heure"
+      : (durValue === "demi" || durValue === "journee") ? durValue
+      : null;  // pas de durée choisie
+
+    const labelMap = { demi: "demi-journée", journee: "journée", horaire: "horaire" };
+    const labelDur = priceKey ? labelMap[durValue] : "durée non précisée";
+
+    /* ----- Tri : prix croissant puis capacité la plus ajustée ----- */
     matches.sort((a, b) => {
       const priceA = priceKey ? a.pricing[priceKey] : Math.min(...Object.values(a.pricing));
       const priceB = priceKey ? b.pricing[priceKey] : Math.min(...Object.values(b.pricing));
-
-      if (priceA !== priceB) return priceA - priceB;          // priorité au prix le plus bas
-      return (a.max - nb) - (b.max - nb);                     // sinon capacité la plus ajustée
+      if (priceA !== priceB) return priceA - priceB;
+      return (a.max - nb) - (b.max - nb);                 // écart de capacité le plus faible
     });
 
-    const best      = matches[0];
-    const label     = priceKey ? labelMap[durValue] : "durée non précisée";
-    const priceStr  = priceKey ? `${best.pricing[priceKey]} € HT` : "sur devis";
+    const best     = matches[0];
+    const priceStr = priceKey ? `${best.pricing[priceKey]} € HT` : "sur devis";
 
-    /* ---------- Couleur du résultat ---------- */
-    const colorMap  = {
-      bruyere: "result-bruyere",
-      goursat:  "result-goursat",
-      orves:    "result-orves",
+    /* ----- Couleur du bloc selon la salle ----- */
+    const colorMap = {
+      bruyere : "result-bruyere",
+      goursat : "result-goursat",
+      orves   : "result-orves",
       messiaen: "result-messiaen"
     };
     if (colorMap[best.id]) resultBlock.classList.add(colorMap[best.id]);
 
-    /* ---------- Affichage ---------- */
+    /* ----- Affichage du résultat ----- */
     resultBlock.innerHTML = `
       <strong>${best.name}</strong><br>
       Capacité : jusqu’à ${best.max} pers.<br>
-      Tarif ${label} : <strong>${priceStr}</strong><br><br>
+      Tarif ${labelDur} : <strong>${priceStr}</strong><br><br>
       <button id="devis-btn" class="btn btn-primary">Demander un devis</button>
     `;
     resultBlock.style.display = "block";
 
-    /* ---------- Pré-remplissage du formulaire de contact ---------- */
+    /* ----- Listener « Demander un devis » (une seule fois) ----- */
     document.getElementById("devis-btn").addEventListener("click", () => {
-      const pmrText  = wantPMR ? "oui" : "non";
-      const lignes   = [
+      const pmrText = wantPMR ? "oui" : "non";
+      const lignes  = [
         "Bonjour,",
         "",
         "Je souhaite organiser un événement avec les critères suivants :",
         `- Type d’événement : ${type}`,
         `- Nombre de participants : ${nb}`,
-        `- Durée : ${label}`,
+        `- Durée : ${labelDur}`,
         (dateStart && dateEnd) ? `- Période souhaitée : du ${dateStart} au ${dateEnd}` : null,
         `- Besoin d’accessibilité PMR : ${pmrText}`,
         "",
@@ -194,9 +209,9 @@ document.addEventListener("DOMContentLoaded", () => {
         messageField.value = lignes;
       }
 
-      closeAssistant();
+      closeAssistant();                                   // ta fonction existante
       setTimeout(() => contactSection?.scrollIntoView({ behavior: "smooth" }), 50);
-    },);
+    }, { once: true });
   });
 
 });

@@ -679,17 +679,17 @@
 
             <div class="form-row">
               <label for="participants">Nombre de participants</label>
-              <select id="participants" name="participants" required>
-                <option value="" disabled selected>Nombre de participants</option>
-                <option value="10">0-10 personnes</option>
-                <option value="20">10-20 personnes</option>
-                <option value="30">20-30 personnes</option>
-                <option value="40">30-40 personnes</option>
-                <option value="50">40-50 personnes</option>
-                <option value="60">50-60 personnes</option>
-                <option value="65">60-65 personnes</option>
-              </select>
+              <input
+                type="number"
+                id="participants"
+                name="participants"
+                min="1"
+                max="65"
+                placeholder="Entrez un nombre"
+                required
+              />
             </div>
+
 
             <div class="form-row">
               <label for="duration">Durée</label>

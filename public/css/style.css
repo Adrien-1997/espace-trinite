@@ -187,7 +187,6 @@ section h2 {
     flex: 0 0 80%;
     margin-right: 12px;
     scroll-snap-align: center;
-    border-radius: 8px;
   }
 }
 
