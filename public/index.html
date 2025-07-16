@@ -17,8 +17,8 @@
   <!-- OPEN GRAPH POUR LES RÉSEAUX SOCIAUX -->
   <meta property="og:title" content="Espace Trinité – Location de salles à Paris 9">
   <meta property="og:description" content="Salles de réunion et de formation à louer à Paris 9, près de Saint-Lazare. Espace lumineux et convivial.">
-  <meta property="og:image" content="https://symphonious-monstera-daf52a.netlify.app/assets/img/preview-opengraph.jpg">
-  <meta property="og:url" content="https://espace-trinite.web.app/">
+  <meta property="og:image" content="https://espacetrinite.fr/assets/img/preview-opengraph.jpg">
+  <meta property="og:url" content="https://espacetrinite.fr/">
   <meta property="og:type" content="website">
   <meta property="article:published_time" content="2025-07-05T12:00:00+02:00">
 
@@ -41,11 +41,16 @@
   <link rel="manifest" href="assets/favicon/site.webmanifest" />
 
   <!-- SCRIPTS -->
-  <script src="js/header.js" defer></script>
-  <script src="js/script.js" defer></script>
-  <script src="js/assistant.js" defer></script>
-  <script src="js/galerie.js" defer></script>
+  <script src="js/consent.js" defer></script>
   <script src="js/mail.js" defer></script>
+  
+  <!-- Script Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  
+  <script src="js/header.js" defer></script>
+  <script src="js/galerie.js" defer></script>
+  <script src="js/assistant.js" defer></script>
+  <script src="js/script.js" defer></script>
 
 </head>
 
@@ -90,32 +95,6 @@
     <div class="hero-overlay">
       <div class="container">
 
-        <div class="hero-grid">
-
-          <!-- Colonne A : pastilles décoratives -->
-          <div class="dot-column" aria-hidden="true">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-blue"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-          </div>
-
-          <!-- Colonne B : logo + contenu -->
-          <div class="hero-content">
-            <div class="accueil-logo">
-              <img src="assets/logo/grand-logo.png" alt="Logo de l’Espace Trinité" loading="lazy">
-            </div>
-            <h1>Vos salles de travail<br>à deux pas de Saint-Lazare</h1>
-            <p>Idéalement situé au cœur du 9<sup>e</sup> arrondissement de Paris, à deux pas de la Gare Saint-Lazare, d’Auber et d’Opéra, l’Espace Trinité vous accueille dans un cadre chaleureux.</p>
-            <p>Réunions professionnelles, séminaires, conférences ou événements sur mesure : notre équipe met à votre disposition des salles équipées et un accompagnement personnalisé.</p>
-          </div>
-
-          <!-- Colonne C : élément décoratif -->
-          <div class="hero-right" aria-hidden="true">
-            <div class="hero-circle"></div>
-          </div>
-        </div>
-
         <div class="photo-band">
           <div class="photo-band-container">
             <div class="photo-item"
@@ -142,16 +121,40 @@
                 style="background-image: url('assets/img/quartier-espace-trinite.JPG');">
             </div>
           </div>
+        </div>        
+
+        <div class="hero-grid">
+
+          <!-- Colonne A : pastilles décoratives -->
+          <div class="dot-column" aria-hidden="true">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-blue"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+
+          <!-- Colonne B : logo + contenu -->
+          <div class="hero-content">
+            <div class="accueil-logo">
+              <img src="assets/logo/grand-logo.png" alt="Logo de l’Espace Trinité" loading="lazy">
+            </div>
+            <h1>Vos salles de travail<br>à deux pas de Saint-Lazare</h1>
+            <p>Idéalement situé au cœur du 9<sup>e</sup> arrondissement de Paris, à deux pas de la Gare Saint-Lazare, d’Auber et d’Opéra, l’Espace Trinité vous accueille dans un cadre chaleureux.</p>
+            <p>Réunions professionnelles, séminaires, conférences ou événements sur mesure : notre équipe met à votre disposition des salles équipées et un accompagnement personnalisé.</p>
+          </div>
+
+          <!-- Colonne C : élément décoratif -->
+          <div class="hero-right" aria-hidden="true">
+            <div class="hero-circle"></div>
+          </div>
         </div>
-
-        <h2 class="titre">Configurations et capacités des salles</h2>
-
+        
         <div class="capacity-list">
 
           <div class="capacity-item">
             <div class="capacity-header">
               <img src="assets/icons/u-table.png" alt="Disposition réunion" class="capacity-icon" loading="lazy">
-              <span class="capacity-type">Réunion</span>
+              <span class="capacity-type">Réunions</span>
             </div>
             <div class="capacity-badges">
               <span class="badge">Salle la plus grande : 40 pers</span>
@@ -162,7 +165,7 @@
           <div class="capacity-item">
             <div class="capacity-header">
               <img src="assets/icons/conference.png" alt="Disposition conférence" class="capacity-icon" loading="lazy">
-              <span class="capacity-type">Conférence</span>
+              <span class="capacity-type">Conférences</span>
             </div>
             <div class="capacity-badges">
               <span class="badge">Salle la plus grande : 65 pers</span>
@@ -173,7 +176,7 @@
           <div class="capacity-item">
             <div class="capacity-header">
               <img src="assets/icons/classe.png" alt="Disposition salle de classe" class="capacity-icon" loading="lazy">
-              <span class="capacity-type">Salle de classe</span>
+              <span class="capacity-type">Salles de classe</span>
             </div>
             <div class="capacity-badges">
               <span class="badge">Salle la plus grande : 38 pers</span>
@@ -219,11 +222,11 @@
         </div>
         <div class="icon-box">
           <i class="bi bi-calendar-event" aria-hidden="true"></i>
-          <p>De la demi-journée à la journée</p>
+          <p>De l'heure à la journée</p>
         </div>
         <div class="icon-box">
           <i class="bi bi-person" aria-hidden="true"></i>
-          <p>De 10 à 59 participants</p>
+          <p>De 10 à 65 participants</p>
         </div>
         <div class="icon-box">
           <i class="bi bi-globe" aria-hidden="true"></i>
@@ -255,17 +258,23 @@
         </section>
 
         <div class="map-container">
+          <div class="map-placeholder" id="map-placeholder">
+            <p>Cette carte utilise des cookies de Google Maps.<br>En cliquant sur "Afficher la carte", vous acceptez le chargement du contenu.</p>
+            <button id="load-map" class="btn">Afficher la carte</button>
+          </div>
           <iframe
+            id="google-map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.5064898799234!2d2.3282051!3d48.877525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e49c2725e9d%3A0x1bea2a062e99c336!2sDu%20C%C3%B4t%C3%A9%20de%20la%20Trinit%C3%A9!5e0!3m2!1sfr!2sfr!4v1719152360000!5m2!1sfr!2sfr"
             width="100%"
             height="350"
-            style="border:0;"
-            title="Carte Google Maps – Espace Trinité, 3 rue de la Trinité, Paris 9e"
+            style="display: none; border: 0;"
             allowfullscreen
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Carte Google Maps – Espace Trinité, 3 rue de la Trinité, Paris 9e">
           </iframe>
         </div>
+
       </div>
     </div>
   </section>
@@ -344,7 +353,7 @@
             </div>
             <div class="agencement-item">
               <img src="assets/icons/conference.png" alt="Disposition conférence" loading="lazy">
-              <span>25 personnes en style conférence</span>
+              <span>20 personnes en style conférence</span>
             </div>
             <div class="agencement-item">
               <img src="assets/icons/classe.png" alt="Disposition classe" loading="lazy">
@@ -371,7 +380,7 @@
           </div>
 
           <h3 id="titre-messiaen">Salle Messiaen</h3>
-          <p>Une salle à la lumière tamisée idéale pour accueillir vos conférences de 30 à 60 personnes. Son style sobre japonisant permettra d’accueillir vos invités pour un séminaire d’entreprise.</p>
+          <p>Une salle à la lumière tamisée idéale pour accueillir vos conférences de 30 à 65 personnes. Son style sobre japonisant permettra d’accueillir vos invités pour un séminaire d’entreprise.</p>
           <p class="superficie">80 m² en sous-sol – Éclairages étudiés (non accessible PMR)</p>
 
           <div class="agencements">
@@ -411,7 +420,7 @@
           </div>
 
           <h3 id="titre-bruyere">Salle La Bruyère</h3>
-          <p>Une salle moderne et lumineuse, entièrement équipée et modulable pour accueillir jusqu’à 40 personnes.</p>
+          <p>Une salle moderne et lumineuse, entièrement équipée et modulable pour accueillir jusqu’à 50 personnes.</p>
           <p class="superficie">70 m² – Lumière du jour</p>
 
           <div class="agencements">
@@ -657,20 +666,30 @@
 
   <!-- =====================================================
   =               SECTION : CONTACT                      =
-  ===================================================== -->
+    ===================================================== -->
 
   <section id="contact" class="section-contact">
     <div class="container">
       <h2>CONTACT</h2>
       <p class="intro">Une question, une demande particulière ? Écrivez-nous, nous vous répondrons rapidement.</p>
-      
-      <form class="contact-form">
+  
+      <form id="contact-form" class="contact-form" method="POST">
         <div class="form-grid">
-          <input type="text" placeholder="Votre nom" required>
-          <input type="email" placeholder="Votre email" required>
+          <input type="text" name="name" placeholder="Votre nom" required>
+          <input type="email" name="email" placeholder="Votre email" required>
         </div>
-        <input type="text" placeholder="Objet" required>
-        <textarea id="contact-message" placeholder="Votre message..." rows="6" required></textarea>
+        <input type="text" name="subject" placeholder="Objet" required>
+        <textarea name="message" id="contact-message" placeholder="Votre message..." rows="6" required></textarea>
+  
+        <!-- ✅ CAPTCHA Turnstile -->
+        <div class="cf-turnstile"
+             data-sitekey="0x4AAAAAABlRgIwfZESu1eSO"
+             data-theme="light"
+             data-size="normal"
+             style="margin: 0 auto;">
+        </div>
+
+  
         <button class="btn" type="submit">Envoyer le message</button>
       </form>
     </div>
@@ -749,7 +768,6 @@
     </div>
   </section>
 
-
   <!-- =====================================================
   =                     FOOTER                           =
   ===================================================== -->
@@ -764,5 +782,16 @@
     </div>
   </footer>
 
+  <!-- =====================================================
+  =                   BANDEAU COOKIES                      =
+  ===================================================== -->
+  
+  <div id="cookie-banner" class="cookie-banner">
+    <p>Ce site utilise des cookies pour fonctionner correctement.
+       <a href="confidentialite.html" rel="nofollow" target="_blank">En savoir plus</a>.
+    </p>
+    <button id="cookie-accept">OK</button>
+  </div>
+  
 </body>
 </html>
