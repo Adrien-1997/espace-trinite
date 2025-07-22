@@ -55,10 +55,12 @@
   <!-- Script Cloudflare Turnstile -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
   <script src="js/header.js" defer></script>
   <script src="js/galerie.js" defer></script>
-  <script src="js/assistant.js" defer></script>
+  <script src="js/assistant_dynamic.js"></script>
   <script src="js/script.js" defer></script>
+  <script src="js/tarifs_dynamic_loader.js"></script>
 
 </head>
 
@@ -529,7 +531,6 @@
             <div class="grid-item"><img src="assets/img/salle-messiaen-paris9-4.jpg" alt="Salle Messiaen Paris 9 - Vue 4"></div>
             <div class="grid-item wide"><img src="assets/img/salle-messiaen-paris9-5.jpg" alt="Salle Messiaen Paris 9 - Vue 5"></div>
             <div class="grid-item"><img src="assets/img/salle-messiaen-paris9-6.jpg" alt="Salle Messiaen Paris 9 - Vue 6"></div>
-            <div class="grid-item tall"><img src="assets/img/salle-messiaen-paris9-7.jpg" alt="Salle Messiaen Paris 9 - Vue 7"></div>
           </div>
         </div>
 
@@ -554,61 +555,36 @@
   =               SECTION : TARIFS                       =
   ===================================================== -->
 
-  <section id="tarifs" class="section-tarifs" aria-labelledby="titre-tarifs">
-    <div class="container">
-      <h2 id="titre-tarifs">TARIFS</h2>
-      <p class="intro">Tarifs HT applicables à partir du 1er septembre 2025.</p>
+    <section id="tarifs" class="section-tarifs" aria-labelledby="titre-tarifs">
+      <div class="container">
+        <h2 id="titre-tarifs">TARIFS</h2>
+        <p class="intro">Tarifs HT applicables à partir du 1er septembre 2025.</p>
 
-      <div class="tarif-grid" role="region" aria-label="Tarifs par salle de réunion">
+        <!-- Grille dynamique injectée par JS -->
+        <div class="tarif-grid" role="region" aria-label="Tarifs par salle de réunion">
+          <noscript>
+            <p>Activez JavaScript pour afficher les tarifs.</p>
+          </noscript>
+        </div>
 
-        <article class="tarif-card rouge" aria-labelledby="tarif-goursat">
-          <h3 id="tarif-goursat">Salle Pierre Goursat</h3>
-          <p><strong>Journée :</strong> 640 €</p>
-          <p><strong>Demi-journée :</strong> 460 €</p>
-          <p><strong>Tarif horaire :</strong> 150 €</p>
-        </article>
+        <!-- Grille forfait AG (commentée comme dans l’original) -->
+        <!-- =====================================================
+        <div class="tarif-grid" style="margin-top: 40px;" role="region" aria-label="Forfaits Assemblées Générales">
+          <article class="tarif-card" style="grid-column: span 2;" aria-labelledby="tarif-ag">
+            <h3 id="tarif-ag">Forfaits Assemblées Générales</h3>
+            <p><strong>1 à 10 personnes :</strong> 350 €</p>
+            <p><strong>11 à 20 personnes :</strong> 400 €</p>
+            <p><strong>21 à 30 personnes :</strong> 450 €</p>
+            <p><strong>31 à 50 personnes :</strong> 500 €</p>
+          </article>
+        </div>
+        ===================================================== -->
 
-        <article class="tarif-card bleu" aria-labelledby="tarif-orves">
-          <h3 id="tarif-orves">Salle Etienne d'Orves</h3>
-          <p><strong>Journée :</strong> 580 €</p>
-          <p><strong>Demi-journée :</strong> 405 €</p>
-          <p><strong>Tarif horaire :</strong> 140 €</p>
-        </article>
-
-        <article class="tarif-card jaune" aria-labelledby="tarif-messiaen">
-          <h3 id="tarif-messiaen">Salle Messiaen</h3>
-          <p><strong>Journée :</strong> 740 €</p>
-          <p><strong>Demi-journée :</strong> 540 €</p>
-          <p><strong>Tarif horaire :</strong> 190 €</p>
-        </article>
-
-        <article class="tarif-card vert" aria-labelledby="tarif-bruyere">
-          <h3 id="tarif-bruyere">Salle La Bruyère</h3>
-          <p><strong>Journée :</strong> 800 €</p>
-          <p><strong>Demi-journée :</strong> 580 €</p>
-          <p><strong>Tarif horaire :</strong> 200 €</p>
-        </article>
-
+        <div class="btn-wrapper">
+          <button class="btn assistant-toggle" aria-label="Demander un devis pour une salle">Demander un devis</button>
+        </div>
       </div>
-  <!-- =====================================================
-      <div class="tarif-grid" style="margin-top: 40px;" role="region" aria-label="Forfaits Assemblées Générales">
-        <article class="tarif-card" style="grid-column: span 2;" aria-labelledby="tarif-ag">
-          <h3 id="tarif-ag">Forfaits Assemblées Générales</h3>
-          <p><strong>1 à 10 personnes :</strong> 350 €</p>
-          <p><strong>11 à 20 personnes :</strong> 400 €</p>
-          <p><strong>21 à 30 personnes :</strong> 450 €</p>
-          <p><strong>31 à 50 personnes :</strong> 500 €</p>
-        </article>
-      </div>
-  ===================================================== -->
-
-
-      <div class="btn-wrapper">
-        <button class="btn assistant-toggle" aria-label="Demander un devis pour une salle">Demander un devis</button>
-      </div>
-
-    </div>
-  </section>
+    </section>
   
   <!-- =====================================================
   =               SECTION : RESTAURATION                 =
@@ -786,6 +762,7 @@
       <nav aria-label="Liens de bas de page">
         <a href="mentions-legales.html" rel="nofollow">Mentions légales</a>
         <a href="confidentialite.html" rel="nofollow">Politique de confidentialité</a>
+        <a href="conditions.html" rel="nofollow">Conditions générales de vente</a>
       </nav>
     </div>
   </footer>
