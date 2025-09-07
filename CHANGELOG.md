@@ -5,3 +5,6 @@ Format: Keep a Changelog, versioning: SemVer.
 
 ## [Unreleased]
 
+
+## [1.0.0] - 2025-09-07
+- Initial release.
